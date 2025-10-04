@@ -3,50 +3,185 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Free Image to PDF Converter - PDFLove Tools</title>
+    <title>Free Image Tools - Online Image Converter & Editor</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background: #f5f7fa; }
-        .container { max-width: 1200px; margin: 0 auto; }
-        header { text-align: center; background: white; padding: 30px; border-radius: 10px; margin-bottom: 30px; }
-        .tools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-        .tool-card { background: white; padding: 25px; border-radius: 10px; text-align: center; }
-        .btn { background: #3498db; color: white; padding: 12px 24px; border: none; border-radius: 5px; cursor: pointer; }
+        :root {
+            --primary-color: #e74c3c;
+            --secondary-color: #c0392b;
+            --accent-color: #3498db;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            color: white;
+            padding: 40px 0;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+        
+        .tool-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .tool-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .tool-title {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .tool-description {
+            color: #7f8c8d;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .btn {
+            background: var(--primary-color);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+        
+        .btn:hover {
+            background: var(--secondary-color);
+        }
+        
+        .cross-promotion {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            margin-top: 40px;
+            color: white;
+        }
+        
+        .cross-promotion a {
+            color: #f1c40f;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: 600;
+        }
+        
+        footer {
+            text-align: center;
+            color: white;
+            margin-top: 40px;
+            padding: 20px;
+            opacity: 0.8;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>🛠 PDFLove Tools</h1>
-            <p>Free Online PDF & Image Tools - Convert, Merge, Split, Compress</p>
+            <h1>🖼 Free Image Tools</h1>
+            <p class="subtitle">Convert, compress, edit, and optimize your images online - 100% free!</p>
         </header>
         
         <div class="tools-grid">
             <div class="tool-card">
-                <h3>Image to PDF Converter</h3>
-                <p>Convert JPG, PNG, GIF to PDF instantly</p>
+                <div class="tool-icon">📱</div>
+                <h3 class="tool-title">Image Compressor</h3>
+                <p class="tool-description">Reduce image file size without losing quality. Perfect for websites and social media.</p>
                 <button class="btn">Use Tool</button>
             </div>
+            
             <div class="tool-card">
-                <h3>PDF Merger</h3>
-                <p>Combine multiple PDF files into one</p>
+                <div class="tool-icon">🔄</div>
+                <h3 class="tool-title">Image Converter</h3>
+                <p class="tool-description">Convert between JPG, PNG, WEBP, GIF, and more formats instantly.</p>
                 <button class="btn">Use Tool</button>
             </div>
+            
             <div class="tool-card">
-                <h3>PDF Splitter</h3>
-                <p>Split PDF documents into separate files</p>
+                <div class="tool-icon">📐</div>
+                <h3 class="tool-title">Image Resizer</h3>
+                <p class="tool-description">Resize images to any dimensions while maintaining aspect ratio.</p>
                 <button class="btn">Use Tool</button>
             </div>
+            
             <div class="tool-card">
-                <h3>PDF to JPG</h3>
-                <p>Convert PDF pages to JPG images</p>
+                <div class="tool-icon">✂</div>
+                <h3 class="tool-title">Background Remover</h3>
+                <p class="tool-description">Remove image backgrounds automatically with AI technology.</p>
                 <button class="btn">Use Tool</button>
             </div>
+            
             <div class="tool-card">
-                <h3>Image Compressor</h3>
-                <p>Reduce image file size without losing quality</p>
+                <div class="tool-icon">🎨</div>
+                <h3 class="tool-title">Image Editor</h3>
+                <p class="tool-description">Crop, rotate, filter, and enhance your images online.</p>
+                <button class="btn">Use Tool</button>
+            </div>
+            
+            <div class="tool-card">
+                <div class="tool-icon">🖼</div>
+                <h3 class="tool-title">Image to PDF</h3>
+                <p class="tool-description">Convert multiple images to PDF documents quickly.</p>
                 <button class="btn">Use Tool</button>
             </div>
         </div>
+        
+        <div class="cross-promotion">
+            <p>🚀 <strong>Check out our other free tools:</strong></p>
+            <a href="https://yourusername.github.io/pdf-tools">PDF Tools</a> • 
+            <a href="https://yourusername.github.io/video-tools">Video Tools</a> • 
+            <a href="https://yourusername.github.io/document-tools">Document Tools</a>
+        </div>
+        
+        <footer>
+            <p>© 2023 Free Image Tools. All rights reserved. | Free online tools for everyone</p>
+        </footer>
     </div>
 </body>
 </html>

@@ -239,6 +239,22 @@
             margin-bottom: 8px;
         }
 
+        /* Ad Container Styles */
+        .ad-container {
+            text-align: center;
+            margin: 20px auto;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            max-width: 300px;
+        }
+
+        .ad-label {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
         @media (max-width: 768px) {
             .main-content {
                 flex-direction: column;
@@ -254,11 +270,27 @@
     <div class="container">
        <header>
     <div style="text-align: center;">
-       <img src="logo.jpg" alt="PDFLove Tools" style="height: 60px; margin-bottom: 15px;">
+       <img src="logo.jpg" alt="PDFLove Tools" style="height: 60px; margin-bottom: 15px;">
         <h1 style="margin: 0; color: #2c3e50;">PDFLove Tools</h1>
     </div>
     <p class="subtitle">Free Online PDF & Image Tools</p>
 </header>
+
+        <!-- Adsterra Banner Ad -->
+        <div class="ad-container">
+            <div class="ad-label">Advertisement</div>
+            <script type="text/javascript">
+                atOptions = {
+                    'key' : 'c84244bfde880ed0f443e86038a6906b',
+                    'format' : 'iframe',
+                    'height' : 250,
+                    'width' : 300,
+                    'params' : {}
+                };
+            </script>
+            <script type="text/javascript" src="//www.highperformanceformat.com/c84244bfde880ed0f443e86038a6906b/invoke.js"></script>
+        </div>
+
         <div class="main-content">
             <div class="upload-section">
                 <h2 class="section-title">Upload Images</h2>
@@ -295,95 +327,98 @@
                     <button class="btn" id="downloadBtn" disabled>Download PDF</button>
                     <button class="btn" id="resetBtn">Reset</button>
                 </div>
-</div>
-    </div>
-    </div>
-
-<!-- 🔧 MORE TOOLS SECTION -->
-<div style="margin: 50px 0; padding: 0 20px;">
-    <div style="text-align: center; margin-bottom: 40px;">
-        <h2 style="color: white; font-size: 2.2rem; margin-bottom: 15px;">🔧 More Free Tools</h2>
-        <p style="color: rgba(255,255,255,0.9); font-size: 1.1rem;">Discover our complete suite of PDF and image tools</p>
-    </div>
-
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; max-width: 1200px; margin: 0 auto;">
-        <!-- PDF Merger Card -->
-        <div style="background: white; padding: 30px; border-radius: 15px; text-align: center; box-shadow: 0 8px 25px rgba(0,0,0,0.15);">
-            <div style="font-size: 50px; margin-bottom: 15px;">📑</div>
-            <h3 style="color: #333; margin-bottom: 15px;">PDF Merger</h3>
-            <p style="color: #666; margin-bottom: 25px;">Combine multiple PDF files into one document</p>
-            <a href="pdf-merger.html" style="display: inline-block; background: #6a11cb; color: white; padding: 12px 30px; border-radius: 50px; text-decoration: none; font-weight: 600;">Use Tool</a>
-        </div>
-
-        <!-- PDF Splitter Card -->
-        <div style="background: white; padding: 30px; border-radius: 15px; text-align: center; box-shadow: 0 8px 25px rgba(0,0,0,0.15);">
-            <div style="font-size: 50px; margin-bottom: 15px;">✂</div>
-            <h3 style="color: #333; margin-bottom: 15px;">PDF Splitter</h3>
-            <p style="color: #666; margin-bottom: 25px;">Split PDF pages into separate files</p>
-            <a href="pdf-splitter.html" style="display: inline-block; background: #ff6b6b; color: white; padding: 12px 30px; border-radius: 50px; text-decoration: none; font-weight: 600;">Use Tool</a>
-        </div>
-
-        <!-- PDF to JPG Card -->
-        <div style="background: white; padding: 30px; border-radius: 15px; text-align: center; box-shadow: 0 8px 25px rgba(0,0,0,0.15);">
-            <div style="font-size: 50px; margin-bottom: 15px;">📄→🖼</div>
-            <h3 style="color: #333; margin-bottom: 15px;">PDF to JPG</h3>
-            <p style="color: #666; margin-bottom: 25px;">Convert PDF pages to JPG images</p>
-            <a href="pdf-to-jpg.html" style="display: inline-block; background: #667eea; color: white; padding: 12px 30px; border-radius: 50px; text-decoration: none; font-weight: 600;">Use Tool</a>
-        </div>
-
-        <!-- Image Compressor Card -->
-        <div style="background: white; padding: 30px; border-radius: 15px; text-align: center; box-shadow: 0 8px 25px rgba(0,0,0,0.15);">
-            <div style="font-size: 50px; margin-bottom: 15px;">🖼</div>
-            <h3 style="color: #333; margin-bottom: 15px;">Image Compressor</h3>
-            <p style="color: #666; margin-bottom: 25px;">Reduce image file size</p>
-            <a href="image-compressor.html" style="display: inline-block; background: #fd746c; color: white; padding: 12px 30px; border-radius: 50px; text-decoration: none; font-weight: 600;">Use Tool</a>
+            </div>
         </div>
     </div>
-</div>
-<!-- END OF MORE TOOLS SECTION -->
 
-    <footer>
-       <footer>
-    <p>Image to PDF Converter &copy; 2023 | All rights reserved</p>
-    
-    <!-- Support Section -->
-    <div style="text-align: center; margin: 25px 0; padding: 20px; background: rgba(255,255,255,0.1); border-radius: 10px;">
-        <h4 style="color: white; margin-bottom: 15px;">☕ Support This Project</h4>
+    <!-- 🔧 MORE TOOLS SECTION -->
+    <div style="margin: 50px 0; padding: 0 20px;">
+        <div style="text-align: center; margin-bottom: 40px;">
+            <h2 style="color: white; font-size: 2.2rem; margin-bottom: 15px;">🔧 More Free Tools</h2>
+            <p style="color: rgba(255,255,255,0.9); font-size: 1.1rem;">Discover our complete suite of PDF and image tools</p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; max-width: 1200px; margin: 0 auto;">
+            <!-- PDF Merger Card -->
+            <div style="background: white; padding: 30px; border-radius: 15px; text-align: center; box-shadow: 0 8px 25px rgba(0,0,0,0.15);">
+                <div style="font-size: 50px; margin-bottom: 15px;">📑</div>
+                <h3 style="color: #333; margin-bottom: 15px;">PDF Merger</h3>
+                <p style="color: #666; margin-bottom: 25px;">Combine multiple PDF files into one document</p>
+                <a href="pdf-merger.html" style="display: inline-block; background: #6a11cb; color: white; padding: 12px 30px; border-radius: 50px; text-decoration: none; font-weight: 600;">Use Tool</a>
+            </div>
+
+            <!-- PDF Splitter Card -->
+            <div style="background: white; padding: 30px; border-radius: 15px; text-align: center; box-shadow: 0 8px 25px rgba(0,0,0,0.15);">
+                <div style="font-size: 50px; margin-bottom: 15px;">✂</div>
+                <h3 style="color: #333; margin-bottom: 15px;">PDF Splitter</h3>
+                <p style="color: #666; margin-bottom: 25px;">Split PDF pages into separate files</p>
+                <a href="pdf-splitter.html" style="display: inline-block; background: #ff6b6b; color: white; padding: 12px 30px; border-radius: 50px; text-decoration: none; font-weight: 600;">Use Tool</a>
+            </div>
+
+            <!-- PDF to JPG Card -->
+            <div style="background: white; padding: 30px; border-radius: 15px; text-align: center; box-shadow: 0 8px 25px rgba(0,0,0,0.15);">
+                <div style="font-size: 50px; margin-bottom: 15px;">📄→🖼</div>
+                <h3 style="color: #333; margin-bottom: 15px;">PDF to JPG</h3>
+                <p style="color: #666; margin-bottom: 25px;">Convert PDF pages to JPG images</p>
+                <a href="pdf-to-jpg.html" style="display: inline-block; background: #667eea; color: white; padding: 12px 30px; border-radius: 50px; text-decoration: none; font-weight: 600;">Use Tool</a>
+            </div>
+
+            <!-- Image Compressor Card -->
+            <div style="background: white; padding: 30px; border-radius: 15px; text-align: center; box-shadow: 0 8px 25px rgba(0,0,0,0.15);">
+                <div style="font-size: 50px; margin-bottom: 15px;">🖼</div>
+                <h3 style="color: #333; margin-bottom: 15px;">Image Compressor</h3>
+                <p style="color: #666; margin-bottom: 25px;">Reduce image file size</p>
+                <a href="image-compressor.html" style="display: inline-block; background: #fd746c; color: white; padding: 12px 30px; border-radius: 50px; text-decoration: none; font-weight: 600;">Use Tool</a>
+            </div>
+        </div>
+    </div>
+    <!-- END OF MORE TOOLS SECTION -->
+
+    <footer>
+        <p>Image to PDF Converter &copy; 2023 | All rights reserved</p>
         
-        <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
-            <!-- Buy Me a Coffee -->
-            <a href="https://buymeacoffee.com/yourusername" target="_blank" 
-               style="display: inline-block; background: #FFDD00; color: #000; 
-                      padding: 10px 20px; border-radius: 25px; text-decoration: none; 
-                      font-weight: bold; transition: all 0.3s;">
-                ☕ Buy Me a Coffee
-            </a>
+        <!-- Support Section -->
+        <div style="text-align: center; margin: 25px 0; padding: 20px; background: rgba(255,255,255,0.1); border-radius: 10px;">
+            <h4 style="color: white; margin-bottom: 15px;">☕ Support This Project</h4>
             
-            <!-- PayPal -->
-            <a href="https://paypal.me/yourusername" target="_blank"
-               style="display: inline-block; background: #0070BA; color: white; 
-                      padding: 10px 20px; border-radius: 25px; text-decoration: none; 
-                      font-weight: bold; transition: all 0.3s;">
-                💙 PayPal
-            </a>
+            <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                <!-- Buy Me a Coffee -->
+                <a href="https://buymeacoffee.com/yourusername" target="_blank" 
+                   style="display: inline-block; background: #FFDD00; color: #000; 
+                          padding: 10px 20px; border-radius: 25px; text-decoration: none; 
+                          font-weight: bold; transition: all 0.3s;">
+                    ☕ Buy Me a Coffee
+                </a>
+                
+                <!-- PayPal -->
+                <a href="https://paypal.me/yourusername" target="_blank"
+                   style="display: inline-block; background: #0070BA; color: white; 
+                          padding: 10px 20px; border-radius: 25px; text-decoration: none; 
+                          font-weight: bold; transition: all 0.3s;">
+                    💙 PayPal
+                </a>
+            </div>
+            
+            <p style="color: rgba(255,255,255,0.7); margin-top: 10px; font-size: 0.9em;">
+                Your support helps keep this tool free for everyone!
+            </p>
         </div>
         
-        <p style="color: rgba(255,255,255,0.7); margin-top: 10px; font-size: 0.9em;">
-            Your support helps keep this tool free for everyone!
-        </p>
-    </div>
-    
-<div class="nav-links">
-    <a href="index.html">Image to PDF</a>
-    <a href="pdf-merger.html">PDF Merger</a>
-    <a href="pdf-splitter.html">PDF Splitter</a>
-    <a href="pdf-to-jpg.html">PDF to JPG</a>
-    <a href="image-compressor.html">Image Compressor</a>
-    <a href="about.html">About</a>
-    <a href="privacy-policy.html">Privacy</a>
-    <a href="contact.html">Contact</a>
-</div>
-</footer>
+        <div class="nav-links">
+            <a href="index.html">Image to PDF</a>
+            <a href="pdf-merger.html">PDF Merger</a>
+            <a href="pdf-splitter.html">PDF Splitter</a>
+            <a href="pdf-to-jpg.html">PDF to JPG</a>
+            <a href="image-compressor.html">Image Compressor</a>
+            <a href="about.html">About</a>
+            <a href="privacy-policy.html">Privacy</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </footer>
+
+    <!-- Adsterra Pop-Under Code -->
+    <script type='text/javascript' src='//pl27779994.revenuecpmgate.com/e2/89/09/e2890912ee39de37948741542f0fe493.js'></script>
+
     <script>
         // Wait for the jsPDF library to load
         window.jsPDF = window.jspdf.jsPDF;
@@ -548,8 +583,6 @@
                                 <p>Pages: ${uploadedImages.length}</p>
                             `;
                             pdfPreview.style.display = 'flex';
-                            
-                            // Enable download button
                             downloadBtn.disabled = false;
                         }
                     };
@@ -559,14 +592,14 @@
             function downloadPdf() {
                 if (!pdfBlob) return;
                 
-                const pdfUrl = URL.createObjectURL(pdfBlob);
+                const url = URL.createObjectURL(pdfBlob);
                 const a = document.createElement('a');
-                a.href = pdfUrl;
+                a.href = url;
                 a.download = 'converted-images.pdf';
                 document.body.appendChild(a);
                 a.click();
                 document.body.removeChild(a);
-                URL.revokeObjectURL(pdfUrl);
+                URL.revokeObjectURL(url);
             }
 
             function resetAll() {
@@ -581,16 +614,13 @@
             }
 
             function formatFileSize(bytes) {
-                if (bytes < 1024) return bytes + ' bytes';
-                else if (bytes < 1048576) return (bytes / 1024).toFixed(2) + ' KB';
-                else return (bytes / 1048576).toFixed(2) + ' MB';
+                if (bytes === 0) return '0 Bytes';
+                const k = 1024;
+                const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+                const i = Math.floor(Math.log(bytes) / Math.log(k));
+                return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
             }
         });
     </script>
 </body>
 </html>
-
-
-
-
-

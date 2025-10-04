@@ -3,22 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- SEO Meta Tags -->
-    <title>Free Image to PDF Converter - Convert JPG, PNG to PDF Online | PDFLove Tools</title>
-    <meta name="description" content="Free online Image to PDF Converter. Convert JPG, PNG, GIF to PDF instantly. Also merge PDF, split PDF, PDF to JPG, compress images. 100% free, no watermark.">
-    <meta name="keywords" content="image to pdf, jpg to pdf, png to pdf, convert images to pdf, free pdf converter, merge pdf, split pdf, pdf to jpg, compress images">
-    <meta name="author" content="PDFLove Tools">
-    
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9D0XW9K9E4"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-9D0XW9K9E4');
-    </script>
-    
+    <title>Image to PDF Converter - Free Online Tool</title>
     <style>
         * {
             margin: 0;
@@ -42,7 +27,7 @@
         header {
             text-align: center;
             margin-bottom: 40px;
-            padding: 30px;
+            padding: 20px;
             background: white;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -51,47 +36,13 @@
         h1 {
             color: #2c3e50;
             margin-bottom: 10px;
-            font-size: 2.5rem;
         }
         
         .subtitle {
             color: #7f8c8d;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
         }
         
-        /* Navigation */
-        .main-nav {
-            background: white;
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            margin-bottom: 30px;
-        }
-        
-        .nav-links {
-            display: flex;
-            justify-content: center;
-            list-style: none;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-        
-        .nav-links a {
-            text-decoration: none;
-            color: #2c3e50;
-            font-weight: 600;
-            padding: 10px 20px;
-            border-radius: 25px;
-            transition: all 0.3s;
-            border: 2px solid transparent;
-        }
-        
-        .nav-links a:hover, .nav-links a.active {
-            background: #3498db;
-            color: white;
-        }
-        
-        /* Main Content Layout */
         .main-content {
             display: flex;
             flex-wrap: wrap;
@@ -117,49 +68,6 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         
-        /* Tool Cards Grid */
-        .tools-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-        
-        .tool-card {
-            background: #f8f9fa;
-            border-radius: 10px;
-            padding: 25px;
-            text-align: center;
-            transition: all 0.3s;
-            border: 1px solid #e9ecef;
-            cursor: pointer;
-        }
-        
-        .tool-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-            border-color: #3498db;
-        }
-        
-        .tool-icon {
-            font-size: 40px;
-            margin-bottom: 15px;
-        }
-        
-        .tool-title {
-            font-weight: 600;
-            margin-bottom: 10px;
-            color: #2c3e50;
-            font-size: 1.3rem;
-        }
-        
-        .tool-description {
-            color: #7f8c8d;
-            margin-bottom: 15px;
-            line-height: 1.5;
-        }
-        
-        /* Upload Area */
         .upload-area {
             border: 2px dashed #3498db;
             border-radius: 8px;
@@ -168,12 +76,10 @@
             margin-bottom: 20px;
             cursor: pointer;
             transition: all 0.3s;
-            background: #f8f9fa;
         }
         
         .upload-area:hover {
-            background-color: #e8f4fc;
-            border-color: #2980b9;
+            background-color: #f0f8ff;
         }
         
         .upload-icon {
@@ -182,7 +88,6 @@
             margin-bottom: 15px;
         }
         
-        /* Buttons */
         .btn {
             display: inline-block;
             background: #3498db;
@@ -213,13 +118,39 @@
             background: #27ae60;
         }
         
-        .btn-tool {
-            background: #3498db;
-            width: 100%;
-            margin-top: 15px;
+        .tool-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
         }
         
-        /* Preview */
+        .tool-card {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s;
+            border: 1px solid #e9ecef;
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tool-icon {
+            font-size: 32px;
+            color: #3498db;
+            margin-bottom: 10px;
+        }
+        
+        .tool-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        
         .preview-container {
             margin-top: 30px;
         }
@@ -244,21 +175,6 @@
             border: 1px solid #ddd;
         }
         
-        /* Tool Interfaces */
-        .tool-interface {
-            display: none;
-            background: white;
-            border-radius: 10px;
-            padding: 30px;
-            margin-top: 20px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        
-        .tool-interface.active {
-            display: block;
-        }
-        
-        /* Instructions */
         .instructions {
             margin-top: 30px;
             padding: 20px;
@@ -279,50 +195,6 @@
             margin-bottom: 10px;
         }
         
-        /* Analytics Dashboard */
-        .analytics-dashboard {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 25px;
-            border-radius: 10px;
-            margin: 30px 0;
-            text-align: center;
-        }
-        
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 15px;
-            margin-top: 20px;
-        }
-        
-        .stat-card {
-            background: rgba(255, 255, 255, 0.2);
-            padding: 15px;
-            border-radius: 8px;
-            backdrop-filter: blur(10px);
-        }
-        
-        .stat-number {
-            font-size: 2rem;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-        
-        .visitor-counter {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: #2c3e50;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 25px;
-            font-size: 14px;
-            font-weight: bold;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-            z-index: 1000;
-        }
-        
         footer {
             text-align: center;
             margin-top: 40px;
@@ -335,247 +207,160 @@
             .main-content {
                 flex-direction: column;
             }
-            
-            .nav-links {
-                gap: 10px;
-            }
-            
-            .nav-links a {
-                padding: 8px 15px;
-                font-size: 14px;
-            }
-            
-            .visitor-counter {
-                bottom: 10px;
-                right: 10px;
-                font-size: 12px;
-                padding: 8px 15px;
-            }
-            
-            h1 {
-                font-size: 2rem;
-            }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>🛠 PDFLove Tools</h1>
-            <p class="subtitle">Free Online PDF & Image Tools - Convert, Merge, Split, Compress</p>
+            <h1>Image to PDF Converter</h1>
+            <p class="subtitle">Convert your images to PDF files quickly and easily</p>
         </header>
-        
-        <!-- Navigation -->
-        <nav class="main-nav">
-            <ul class="nav-links">
-                <li><a href="#image-to-pdf" class="nav-tool active" data-tool="image-to-pdf">Image to PDF</a></li>
-                <li><a href="#pdf-merger" class="nav-tool" data-tool="pdf-merger">PDF Merger</a></li>
-                <li><a href="#pdf-splitter" class="nav-tool" data-tool="pdf-splitter">PDF Splitter</a></li>
-                <li><a href="#pdf-to-jpg" class="nav-tool" data-tool="pdf-to-jpg">PDF to JPG</a></li>
-                <li><a href="#image-compressor" class="nav-tool" data-tool="image-compressor">Image Compressor</a></li>
-            </ul>
-        </nav>
-        
-        <!-- Analytics Dashboard -->
-        <section class="analytics-dashboard">
-            <h2>📊 Website Analytics</h2>
-            <p>Real-time visitor tracking</p>
-            
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-number" id="totalVisits">0</div>
-                    <div>Total Visits</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number" id="uniqueVisitors">0</div>
-                    <div>Unique Visitors</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number" id="todayVisits">0</div>
-                    <div>Today</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number" id="onlineNow">1</div>
-                    <div>Online Now</div>
-                </div>
-            </div>
-            
-            <p style="margin-top: 15px; font-size: 0.9em; opacity: 0.9;">
-                For detailed analytics, check 
-                <a href="https://analytics.google.com" target="_blank" style="color: #f1c40f; text-decoration: none; font-weight: bold;">
-                    Google Analytics
-                </a>
-            </p>
-        </section>
         
         <div class="main-content">
             <section class="converter-section">
-                <!-- Image to PDF Converter Interface -->
-                <div id="image-to-pdf" class="tool-interface active">
-                    <h2>Convert Images to PDF</h2>
-                    <div class="upload-area" id="uploadArea">
-                        <div class="upload-icon">📁</div>
-                        <p>Drag & drop images here or</p>
-                        <button class="btn" id="browseBtn">Browse Files</button>
-                        <input type="file" id="fileInput" multiple accept="image/*" style="display: none;">
-                    </div>
-                    
-                    <div class="preview-container">
-                        <h3 class="preview-title">Selected Images</h3>
-                        <div class="preview-images" id="previewImages">
-                            <!-- Preview images will appear here -->
-                        </div>
-                    </div>
-                    
-                    <button class="btn btn-convert" id="convertBtn">Convert to PDF</button>
-                    
-                    <div class="instructions">
-                        <h3>How to use:</h3>
-                        <ol>
-                            <li>Select images by clicking "Browse Files" or drag and drop them</li>
-                            <li>Preview your selected images</li>
-                            <li>Click "Convert to PDF" to generate your PDF</li>
-                            <li>Download your PDF file</li>
-                        </ol>
+                <h2>Convert Images to PDF</h2>
+                <div class="upload-area" id="uploadArea">
+                    <div class="upload-icon">📁</div>
+                    <p>Drag & drop images here or</p>
+                    <button class="btn" id="browseBtn">Browse Files</button>
+                    <input type="file" id="fileInput" multiple accept="image/*" style="display: none;">
+                </div>
+                
+                <div class="preview-container">
+                    <h3 class="preview-title">Selected Images</h3>
+                    <div class="preview-images" id="previewImages">
+                        <!-- Preview images will appear here -->
                     </div>
                 </div>
                 
-                <!-- PDF Merger Interface -->
-                <div id="pdf-merger" class="tool-interface">
-                    <h2>PDF Merger</h2>
-                    <div class="upload-area">
-                        <div class="upload-icon">📑</div>
-                        <p>Drag & drop PDF files here or</p>
-                        <button class="btn">Browse PDF Files</button>
-                    </div>
-                    <button class="btn btn-convert">Merge PDF Files</button>
-                    <div class="instructions">
-                        <h3>How to merge PDFs:</h3>
-                        <ol>
-                            <li>Upload multiple PDF files</li>
-                            <li>Arrange them in desired order</li>
-                            <li>Click "Merge PDF Files"</li>
-                            <li>Download merged PDF</li>
-                        </ol>
-                    </div>
-                </div>
+                <button class="btn btn-convert" id="convertBtn">Convert to PDF</button>
                 
-                <!-- PDF Splitter Interface -->
-                <div id="pdf-splitter" class="tool-interface">
-                    <h2>PDF Splitter</h2>
-                    <div class="upload-area">
-                        <div class="upload-icon">✂</div>
-                        <p>Drag & drop PDF file here or</p>
-                        <button class="btn">Browse PDF File</button>
-                    </div>
-                    <button class="btn btn-convert">Split PDF Document</button>
-                    <div class="instructions">
-                        <h3>How to split PDF:</h3>
-                        <ol>
-                            <li>Upload your PDF document</li>
-                            <li>Select pages to extract or split ranges</li>
-                            <li>Click "Split PDF Document"</li>
-                            <li>Download separated files</li>
-                        </ol>
-                    </div>
-                </div>
-                
-                <!-- PDF to JPG Interface -->
-                <div id="pdf-to-jpg" class="tool-interface">
-                    <h2>PDF to JPG Converter</h2>
-                    <div class="upload-area">
-                        <div class="upload-icon">📄➡🖼</div>
-                        <p>Drag & drop PDF file here or</p>
-                        <button class="btn">Browse PDF File</button>
-                    </div>
-                    <button class="btn btn-convert">Convert to JPG</button>
-                    <div class="instructions">
-                        <h3>How to convert PDF to JPG:</h3>
-                        <ol>
-                            <li>Upload your PDF file</li>
-                            <li>Select pages to convert</li>
-                            <li>Click "Convert to JPG"</li>
-                            <li>Download JPG images</li>
-                        </ol>
-                    </div>
-                </div>
-                
-                <!-- Image Compressor Interface -->
-                <div id="image-compressor" class="tool-interface">
-                    <h2>Image Compressor</h2>
-                    <div class="upload-area">
-                        <div class="upload-icon">📱</div>
-                        <p>Drag & drop images here or</p>
-                        <button class="btn">Browse Images</button>
-                    </div>
-                    <button class="btn btn-convert">Compress Images</button>
-                    <div class="instructions">
-                        <h3>How to compress images:</h3>
-                        <ol>
-                            <li>Upload your images</li>
-                            <li>Adjust compression settings</li>
-                            <li>Click "Compress Images"</li>
-                            <li>Download optimized files</li>
-                        </ol>
-                    </div>
+                <div class="instructions">
+                    <h3>How to use:</h3>
+                    <ol>
+                        <li>Select images by clicking "Browse Files" or drag and drop them</li>
+                        <li>Preview your selected images</li>
+                        <li>Click "Convert to PDF" to generate your PDF</li>
+                        <li>Download your PDF file</li>
+                    </ol>
                 </div>
             </section>
             
             <section class="tools-section">
-                <h2>All Free Tools</h2>
+                <h2>More Free Tools</h2>
                 <p>Discover our complete suite of PDF and image tools</p>
                 
-                <div class="tools-grid">
-                    <div class="tool-card" data-tool="image-to-pdf">
-                        <div class="tool-icon">🖼➡📄</div>
-                        <h3 class="tool-title">Image to PDF</h3>
-                        <p class="tool-description">Convert JPG, PNG, GIF images to PDF documents instantly</p>
-                        <button class="btn btn-tool">Use Tool</button>
-                    </div>
-                    
-                    <div class="tool-card" data-tool="pdf-merger">
-                        <div class="tool-icon">📄➕📄</div>
+                <div class="tool-grid">
+                    <div class="tool-card">
+                        <div class="tool-icon">🔗</div>
                         <h3 class="tool-title">PDF Merger</h3>
-                        <p class="tool-description">Combine multiple PDF files into one document</p>
-                        <button class="btn btn-tool">Use Tool</button>
+                        <p>Combine multiple PDF files into one document</p>
+                        <button class="btn" style="margin-top: 15px;">Use Tool</button>
                     </div>
                     
-                    <div class="tool-card" data-tool="pdf-splitter">
-                        <div class="tool-icon">📄✂</div>
+                    <div class="tool-card">
+                        <div class="tool-icon">✂</div>
                         <h3 class="tool-title">PDF Splitter</h3>
-                        <p class="tool-description">Split PDF documents into separate files</p>
-                        <button class="btn btn-tool">Use Tool</button>
+                        <p>Split PDF pages into separate files</p>
+                        <button class="btn" style="margin-top: 15px;">Use Tool</button>
                     </div>
                     
-                    <div class="tool-card" data-tool="pdf-to-jpg">
-                        <div class="tool-icon">📄➡🖼</div>
+                    <div class="tool-card">
+                        <div class="tool-icon">🖼</div>
                         <h3 class="tool-title">PDF to JPG</h3>
-                        <p class="tool-description">Convert PDF pages to high-quality JPG images</p>
-                        <button class="btn btn-tool">Use Tool</button>
+                        <p>Convert PDF pages to JPG images</p>
+                        <button class="btn" style="margin-top: 15px;">Use Tool</button>
                     </div>
                     
-                    <div class="tool-card" data-tool="image-compressor">
+                    <div class="tool-card">
                         <div class="tool-icon">📱</div>
                         <h3 class="tool-title">Image Compressor</h3>
-                        <p class="tool-description">Reduce image file size without losing quality</p>
-                        <button class="btn btn-tool">Use Tool</button>
+                        <p>Reduce image file size</p>
+                        <button class="btn" style="margin-top: 15px;">Use Tool</button>
                     </div>
                 </div>
             </section>
         </div>
         
         <footer>
-            <p>© 2024 PDFLove Tools. All rights reserved. | Free Online PDF & Image Tools</p>
+            <p>© 2023 Image to PDF Converter. All rights reserved.</p>
         </footer>
     </div>
 
-    <!-- Live Visitor Counter -->
-    <div class="visitor-counter" id="visitorCounter">
-        👥 <span id="currentVisits">0</span> Visits
-    </div>
-
     <script>
-        // Tool Navigation System
         document.addEventListener('DOMContentLoaded', function() {
             const fileInput = document.getElementById('fileInput');
-            const browseBtn = document.getElementByI
+            const browseBtn = document.getElementById('browseBtn');
+            const uploadArea = document.getElementById('uploadArea');
+            const previewImages = document.getElementById('previewImages');
+            const convertBtn = document.getElementById('convertBtn');
+            
+            let selectedFiles = [];
+            
+            // Open file browser when browse button is clicked
+            browseBtn.addEventListener('click', function() {
+                fileInput.click();
+            });
+            
+            // Handle file selection
+            fileInput.addEventListener('change', function(e) {
+                handleFiles(e.target.files);
+            });
+            
+            // Handle drag and drop
+            uploadArea.addEventListener('dragover', function(e) {
+                e.preventDefault();
+                uploadArea.style.backgroundColor = '#e8f4fc';
+            });
+            
+            uploadArea.addEventListener('dragleave', function() {
+                uploadArea.style.backgroundColor = '';
+            });
+            
+            uploadArea.addEventListener('drop', function(e) {
+                e.preventDefault();
+                uploadArea.style.backgroundColor = '';
+                handleFiles(e.dataTransfer.files);
+            });
+            
+            // Process selected files
+            function handleFiles(files) {
+                selectedFiles = Array.from(files);
+                previewImages.innerHTML = '';
+                
+                selectedFiles.forEach(file => {
+                    if (file.type.startsWith('image/')) {
+                        const reader = new FileReader();
+                        
+                        reader.onload = function(e) {
+                            const img = document.createElement('img');
+                            img.src = e.target.result;
+                            img.classList.add('preview-image');
+                            previewImages.appendChild(img);
+                        };
+                        
+                        reader.readAsDataURL(file);
+                    }
+                });
+            }
+            
+            // Convert to PDF button
+            convertBtn.addEventListener('click', function() {
+                if (selectedFiles.length === 0) {
+                    alert('Please select at least one image to convert.');
+                    return;
+                }
+                
+                // In a real application, this would convert images to PDF
+                alert('In a real application, this would convert your images to a PDF file. For this demo, we\'re just showing the functionality.');
+                
+                // Simulate download
+                setTimeout(() => {
+                    alert('Your PDF is ready for download!');
+                }, 1000);
+            });
+        });
+    </script>
+</body>
+</html>

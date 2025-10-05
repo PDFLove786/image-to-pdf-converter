@@ -3,9 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Image to PDF Converter</title>
+    <title>PDFLove Tools - Advanced PDF & Image Solutions</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
+        :root {
+            --primary: #667eea;
+            --primary-dark: #5a6fd8;
+            --secondary: #764ba2;
+            --accent: #f093fb;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --light: #f8fafc;
+            --dark: #1e293b;
+            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-hover: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -14,135 +29,220 @@
         }
 
         body {
-            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: #333;
             min-height: 100vh;
-            padding: 20px;
+            line-height: 1.6;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
+            padding: 0 20px;
         }
 
+        /* Header Styles */
         header {
-            text-align: center;
-            padding: 40px 0;
-            color: white;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
-        h1 {
-            font-size: 2.8rem;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-        }
-
-        .subtitle {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .main-content {
+        .header-content {
             display: flex;
+            justify-content: space-between;
+            align-items: center;
             flex-wrap: wrap;
-            gap: 30px;
-            margin-top: 20px;
         }
 
-        .upload-section {
-            flex: 1;
-            min-width: 300px;
-            background: white;
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
         }
 
-        .preview-section {
-            flex: 1;
-            min-width: 300px;
+        .logo img {
+            height: 50px;
+            width: 50px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        .logo-text h1 {
+            font-size: 1.8rem;
+            color: var(--dark);
+            margin: 0;
+        }
+
+        .logo-text p {
+            color: #666;
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .nav-btn {
+            padding: 10px 20px;
+            background: var(--gradient);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .nav-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .nav-btn.active {
+            background: var(--gradient-hover);
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 50px 0;
+        }
+
+        .tool-container {
             background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+        }
+
+        .tool-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .tool-header h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+
+        .tool-header p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        /* Upload Section */
+        .upload-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 968px) {
+            .upload-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .upload-section, .preview-section {
+            background: var(--light);
             border-radius: 15px;
             padding: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
 
         .section-title {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
+            color: var(--dark);
             margin-bottom: 20px;
-            color: #444;
-            border-bottom: 2px solid #eee;
-            padding-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .drop-area {
-            border: 3px dashed #6a11cb;
-            border-radius: 10px;
-            padding: 40px 20px;
+            border: 3px dashed var(--primary);
+            border-radius: 15px;
+            padding: 50px 20px;
             text-align: center;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: all 0.3s ease;
             background: #f8f9ff;
         }
 
         .drop-area:hover, .drop-area.highlight {
             background: #eef2ff;
-            border-color: #2575fc;
+            border-color: var(--secondary);
         }
 
         .drop-area i {
-            font-size: 50px;
-            color: #6a11cb;
-            margin-bottom: 15px;
+            font-size: 60px;
+            color: var(--primary);
+            margin-bottom: 20px;
         }
 
         .drop-area p {
             margin: 10px 0;
             color: #666;
+            font-size: 1.1rem;
         }
 
         .file-input {
             display: none;
         }
 
+        /* Buttons */
         .btn {
-            display: inline-block;
-            background: linear-gradient(to right, #6a11cb, #2575fc);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--gradient);
             color: white;
             border: none;
-            padding: 12px 25px;
+            padding: 15px 30px;
             border-radius: 50px;
             font-size: 1rem;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(106, 17, 203, 0.3);
-            margin-top: 15px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
         }
 
         .btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(106, 17, 203, 0.4);
-        }
-
-        .btn:active {
-            transform: translateY(0);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+            background: var(--gradient-hover);
         }
 
         .btn:disabled {
-            background: #cccccc;
+            background: #ccc;
             cursor: not-allowed;
             transform: none;
             box-shadow: none;
         }
 
+        .btn-secondary {
+            background: #6c757d;
+        }
+
+        .btn-secondary:hover {
+            background: #5a6268;
+        }
+
+        /* Preview Styles */
         .image-preview {
-            display: flex;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
             gap: 15px;
-            margin-top: 20px;
             max-height: 400px;
             overflow-y: auto;
             padding: 10px;
@@ -150,11 +250,10 @@
 
         .preview-item {
             position: relative;
-            width: 120px;
-            height: 120px;
-            border-radius: 8px;
+            border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            aspect-ratio: 1;
         }
 
         .preview-item img {
@@ -167,30 +266,29 @@
             position: absolute;
             top: 5px;
             right: 5px;
-            background: rgba(255, 0, 0, 0.7);
+            background: rgba(239, 68, 68, 0.9);
             color: white;
             border: none;
-            width: 24px;
-            height: 24px;
+            width: 28px;
+            height: 28px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            font-size: 14px;
+            font-size: 16px;
+            transition: all 0.3s ease;
         }
 
-        .actions {
-            margin-top: 25px;
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
+        .remove-btn:hover {
+            background: rgba(220, 38, 38, 1);
+            transform: scale(1.1);
         }
 
         .pdf-preview {
             border: 2px dashed #ddd;
-            border-radius: 10px;
-            padding: 20px;
+            border-radius: 15px;
+            padding: 40px 20px;
             text-align: center;
             min-height: 300px;
             display: flex;
@@ -198,229 +296,569 @@
             justify-content: center;
             flex-direction: column;
             background: #f9f9f9;
-            margin-top: 20px;
         }
 
         .pdf-preview i {
-            font-size: 70px;
+            font-size: 80px;
             color: #e74c3c;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
 
         .pdf-preview p {
             color: #777;
+            font-size: 1.1rem;
         }
 
-        footer {
-            text-align: center;
-            margin-top: 50px;
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 0.9rem;
-        }
-
-        .instructions {
-            background: #f0f4ff;
-            border-radius: 10px;
-            padding: 20px;
+        /* Actions */
+        .actions {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
             margin-top: 30px;
         }
 
-        .instructions h3 {
-            color: #444;
-            margin-bottom: 10px;
-        }
-
-        .instructions ol {
-            padding-left: 20px;
-            color: #666;
-        }
-
-        .instructions li {
-            margin-bottom: 8px;
-        }
-
-        /* Ad Container Styles */
+        /* Ad Container */
         .ad-container {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 30px 0;
             text-align: center;
-            margin: 20px auto;
-            padding: 10px;
-            background: #f8f9fa;
-            border-radius: 8px;
-            max-width: 300px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
         .ad-label {
-            font-size: 12px;
+            font-size: 0.8rem;
             color: #666;
-            margin-bottom: 5px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
+        /* Tools Grid */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+
+        .tool-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.2);
+        }
+
+        .tool-icon {
+            font-size: 60px;
+            margin-bottom: 20px;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .tool-card h3 {
+            font-size: 1.5rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+
+        .tool-card p {
+            color: #666;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(30, 41, 59, 0.95);
+            color: white;
+            padding: 50px 0 20px;
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .support-section {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .support-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .support-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .support-btn.coffee {
+            background: #FFDD00;
+            color: #000;
+        }
+
+        .support-btn.paypal {
+            background: #0070BA;
+            color: white;
+        }
+
+        .support-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #94a3b8;
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            width: 100%;
+            background: #e9ecef;
+            border-radius: 10px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            width: 0%;
+            height: 8px;
+            background: var(--gradient);
+            border-radius: 10px;
+            transition: width 0.3s ease;
+        }
+
+        /* Notification */
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--success);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transform: translateX(400px);
+            transition: transform 0.3s ease;
+            z-index: 1001;
+        }
+
+        .notification.show {
+            transform: translateX(0);
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
-            .main-content {
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .nav-links {
+                justify-content: center;
+            }
+
+            .tool-header h2 {
+                font-size: 2rem;
+            }
+
+            .upload-grid {
+                gap: 20px;
+            }
+
+            .actions {
                 flex-direction: column;
             }
-            
-            h1 {
-                font-size: 2.2rem;
+
+            .btn {
+                width: 100%;
+                justify-content: center;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-       <header>
-    <div style="text-align: center;">
-       <img src="logo.jpg" alt="PDFLove Tools" style="height: 60px; margin-bottom: 15px;">
-        <h1 style="margin: 0; color: #2c3e50;">PDFLove Tools</h1>
-    </div>
-    <p class="subtitle">Free Online PDF & Image Tools</p>
-</header>
-
-        <!-- Adsterra Banner Ad -->
-        <div class="ad-container">
-            <div class="ad-label">Advertisement</div>
-            <script type="text/javascript">
-                atOptions = {
-                    'key' : 'c84244bfde880ed0f443e86038a6906b',
-                    'format' : 'iframe',
-                    'height' : 250,
-                    'width' : 300,
-                    'params' : {}
-                };
-            </script>
-            <script type="text/javascript" src="//www.highperformanceformat.com/c84244bfde880ed0f443e86038a6906b/invoke.js"></script>
-        </div>
-
-        <div class="main-content">
-            <div class="upload-section">
-                <h2 class="section-title">Upload Images</h2>
-                <div class="drop-area" id="dropArea">
-                    <i>📁</i>
-                    <p>Drag & Drop your images here</p>
-                    <p>or</p>
-                    <button class="btn" id="browseBtn">Browse Files</button>
-                    <input type="file" id="fileInput" class="file-input" multiple accept="image/*">
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-placeholder" style="width: 50px; height: 50px; background: var(--gradient); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+                        PDF
+                    </div>
+                    <div class="logo-text">
+                        <h1>PDFLove Tools</h1>
+                        <p>Advanced PDF & Image Solutions</p>
+                    </div>
                 </div>
-
-                <div class="instructions">
-                    <h3>How to use:</h3>
-                    <ol>
-                        <li>Select images by clicking "Browse Files" or drag and drop them</li>
-                        <li>Preview your selected images</li>
-                        <li>Click "Convert to PDF" to generate your PDF</li>
-                        <li>Download your PDF file</li>
-                    </ol>
+                <div class="nav-links">
+                    <a href="#image-to-pdf" class="nav-btn active" onclick="showTool('image-to-pdf')">
+                        <i class="fas fa-image"></i> Image to PDF
+                    </a>
+                    <a href="#pdf-merger" class="nav-btn" onclick="showTool('pdf-merger')">
+                        <i class="fas fa-object-group"></i> PDF Merger
+                    </a>
+                    <a href="#pdf-splitter" class="nav-btn" onclick="showTool('pdf-splitter')">
+                        <i class="fas fa-cut"></i> PDF Splitter
+                    </a>
+                    <a href="#pdf-to-jpg" class="nav-btn" onclick="showTool('pdf-to-jpg')">
+                        <i class="fas fa-file-image"></i> PDF to JPG
+                    </a>
                 </div>
             </div>
+        </div>
+    </header>
 
-            <div class="preview-section">
-                <h2 class="section-title">Preview</h2>
-                <div class="image-preview" id="imagePreview">
-                    <div class="pdf-preview" id="pdfPreview">
-                        <i>📄</i>
-                        <p>Your PDF will appear here after conversion</p>
+    <!-- Main Content -->
+    <div class="container main-content">
+        <!-- Ad Banner -->
+        <div class="ad-container">
+            <div class="ad-label">Advertisement</div>
+            <div id="ad-banner">
+                <!-- Ad content will be loaded here -->
+                <div style="padding: 20px; background: linear-gradient(135deg, #667eea, #764ba2); color: white; border-radius: 10px;">
+                    <h4 style="margin-bottom: 10px;">✨ PDFLove Pro</h4>
+                    <p style="margin-bottom: 15px; opacity: 0.9;">Upgrade for unlimited conversions and premium features</p>
+                    <button class="btn" style="background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.3);">
+                        Learn More
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Image to PDF Tool -->
+        <div id="image-to-pdf" class="tool-container">
+            <div class="tool-header">
+                <h2><i class="fas fa-image"></i> Image to PDF Converter</h2>
+                <p>Convert multiple images to a single PDF document instantly</p>
+            </div>
+
+            <div class="upload-grid">
+                <div class="upload-section">
+                    <h3 class="section-title"><i class="fas fa-upload"></i> Upload Images</h3>
+                    <div class="drop-area" id="dropArea">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <p>Drag & Drop your images here</p>
+                        <p>or</p>
+                        <button class="btn" id="browseBtn">
+                            <i class="fas fa-folder-open"></i> Browse Files
+                        </button>
+                        <input type="file" id="fileInput" class="file-input" multiple accept="image/*">
+                    </div>
+
+                    <div class="progress-container" id="progressContainer" style="display: none;">
+                        <div class="progress-bar" id="progressBar"></div>
+                    </div>
+
+                    <div class="instructions" style="margin-top: 30px; padding: 20px; background: #f8f9fa; border-radius: 10px;">
+                        <h4><i class="fas fa-info-circle"></i> How to use:</h4>
+                        <ol style="margin-left: 20px; margin-top: 10px; color: #666;">
+                            <li>Select images by clicking "Browse Files" or drag and drop</li>
+                            <li>Preview your selected images in the right panel</li>
+                            <li>Click "Convert to PDF" to generate your document</li>
+                            <li>Download your PDF file instantly</li>
+                        </ol>
                     </div>
                 </div>
 
-                <div class="actions">
-                    <button class="btn" id="convertBtn" disabled>Convert to PDF</button>
-                    <button class="btn" id="downloadBtn" disabled>Download PDF</button>
-                    <button class="btn" id="resetBtn">Reset</button>
+                <div class="preview-section">
+                    <h3 class="section-title"><i class="fas fa-eye"></i> Preview</h3>
+                    <div class="image-preview" id="imagePreview">
+                        <div class="pdf-preview" id="pdfPreview">
+                            <i class="fas fa-file-pdf"></i>
+                            <p>Your PDF will appear here after conversion</p>
+                            <p class="text-muted">Supports JPG, PNG, GIF, WebP</p>
+                        </div>
+                    </div>
+
+                    <div class="actions">
+                        <button class="btn" id="convertBtn" disabled>
+                            <i class="fas fa-sync-alt"></i> Convert to PDF
+                        </button>
+                        <button class="btn" id="downloadBtn" disabled>
+                            <i class="fas fa-download"></i> Download PDF
+                        </button>
+                        <button class="btn btn-secondary" id="resetBtn">
+                            <i class="fas fa-redo"></i> Reset
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Other Tools (Hidden by default) -->
+        <div id="pdf-merger" class="tool-container" style="display: none;">
+            <div class="tool-header">
+                <h2><i class="fas fa-object-group"></i> PDF Merger</h2>
+                <p>Combine multiple PDF files into one document</p>
+            </div>
+            <div style="text-align: center; padding: 60px 20px;">
+                <i class="fas fa-tools" style="font-size: 80px; color: #667eea; margin-bottom: 20px;"></i>
+                <h3 style="color: #666; margin-bottom: 20px;">PDF Merger Coming Soon</h3>
+                <p style="color: #888; max-width: 500px; margin: 0 auto;">
+                    We're working on bringing you the best PDF merging experience. This feature will be available in the next update!
+                </p>
+            </div>
+        </div>
+
+        <div id="pdf-splitter" class="tool-container" style="display: none;">
+            <div class="tool-header">
+                <h2><i class="fas fa-cut"></i> PDF Splitter</h2>
+                <p>Split PDF pages into separate files</p>
+            </div>
+            <div style="text-align: center; padding: 60px 20px;">
+                <i class="fas fa-tools" style="font-size: 80px; color: #667eea; margin-bottom: 20px;"></i>
+                <h3 style="color: #666; margin-bottom: 20px;">PDF Splitter Coming Soon</h3>
+                <p style="color: #888; max-width: 500px; margin: 0 auto;">
+                    We're working on bringing you the best PDF splitting experience. This feature will be available in the next update!
+                </p>
+            </div>
+        </div>
+
+        <div id="pdf-to-jpg" class="tool-container" style="display: none;">
+            <div class="tool-header">
+                <h2><i class="fas fa-file-image"></i> PDF to JPG Converter</h2>
+                <p>Convert PDF pages to JPG images</p>
+            </div>
+            <div style="text-align: center; padding: 60px 20px;">
+                <i class="fas fa-tools" style="font-size: 80px; color: #667eea; margin-bottom: 20px;"></i>
+                <h3 style="color: #666; margin-bottom: 20px;">PDF to JPG Coming Soon</h3>
+                <p style="color: #888; max-width: 500px; margin: 0 auto;">
+                    We're working on bringing you the best PDF to JPG conversion experience. This feature will be available in the next update!
+                </p>
+            </div>
+        </div>
+
+        <!-- More Tools Section -->
+        <div class="tools-grid">
+            <div class="tool-card">
+                <div class="tool-icon">
+                    <i class="fas fa-file-pdf"></i>
+                </div>
+                <h3>PDF Compressor</h3>
+                <p>Reduce PDF file size without losing quality. Perfect for email attachments and web uploads.</p>
+                <button class="btn" onclick="showNotification('PDF Compressor coming soon!')">
+                    <i class="fas fa-rocket"></i> Coming Soon
+                </button>
+            </div>
+
+            <div class="tool-card">
+                <div class="tool-icon">
+                    <i class="fas fa-lock"></i>
+                </div>
+                <h3>PDF Protector</h3>
+                <p>Add passwords and permissions to your PDF files. Keep your documents secure and private.</p>
+                <button class="btn" onclick="showNotification('PDF Protector coming soon!')">
+                    <i class="fas fa-rocket"></i> Coming Soon
+                </button>
+            </div>
+
+            <div class="tool-card">
+                <div class="tool-icon">
+                    <i class="fas fa-search"></i>
+                </div>
+                <h3>PDF OCR</h3>
+                <p>Extract text from scanned PDF documents. Make your scanned files searchable and editable.</p>
+                <button class="btn" onclick="showNotification('PDF OCR coming soon!')">
+                    <i class="fas fa-rocket"></i> Coming Soon
+                </button>
+            </div>
+        </div>
+
+        <!-- Second Ad -->
+        <div class="ad-container">
+            <div class="ad-label">Sponsored</div>
+            <div style="padding: 25px; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; border-radius: 12px; text-align: center;">
+                <h4 style="margin-bottom: 10px;">🚀 Need More Power?</h4>
+                <p style="margin-bottom: 20px; opacity: 0.9;">Try our advanced features with PDFLove Pro</p>
+                <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+                    <button class="btn" style="background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.3);">
+                        View Features
+                    </button>
+                    <button class="btn" style="background: white; color: #f5576c;">
+                        Try Free
+                    </button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- 🔧 MORE TOOLS SECTION -->
-    <div style="margin: 50px 0; padding: 0 20px;">
-        <div style="text-align: center; margin-bottom: 40px;">
-            <h2 style="color: white; font-size: 2.2rem; margin-bottom: 15px;">🔧 More Free Tools</h2>
-            <p style="color: rgba(255,255,255,0.9); font-size: 1.1rem;">Discover our complete suite of PDF and image tools</p>
-        </div>
-
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; max-width: 1200px; margin: 0 auto;">
-            <!-- PDF Merger Card -->
-            <div style="background: white; padding: 30px; border-radius: 15px; text-align: center; box-shadow: 0 8px 25px rgba(0,0,0,0.15);">
-                <div style="font-size: 50px; margin-bottom: 15px;">📑</div>
-                <h3 style="color: #333; margin-bottom: 15px;">PDF Merger</h3>
-                <p style="color: #666; margin-bottom: 25px;">Combine multiple PDF files into one document</p>
-                <a href="pdf-merger.html" style="display: inline-block; background: #6a11cb; color: white; padding: 12px 30px; border-radius: 50px; text-decoration: none; font-weight: 600;">Use Tool</a>
-            </div>
-
-            <!-- PDF Splitter Card -->
-            <div style="background: white; padding: 30px; border-radius: 15px; text-align: center; box-shadow: 0 8px 25px rgba(0,0,0,0.15);">
-                <div style="font-size: 50px; margin-bottom: 15px;">✂</div>
-                <h3 style="color: #333; margin-bottom: 15px;">PDF Splitter</h3>
-                <p style="color: #666; margin-bottom: 25px;">Split PDF pages into separate files</p>
-                <a href="pdf-splitter.html" style="display: inline-block; background: #ff6b6b; color: white; padding: 12px 30px; border-radius: 50px; text-decoration: none; font-weight: 600;">Use Tool</a>
-            </div>
-
-            <!-- PDF to JPG Card -->
-            <div style="background: white; padding: 30px; border-radius: 15px; text-align: center; box-shadow: 0 8px 25px rgba(0,0,0,0.15);">
-                <div style="font-size: 50px; margin-bottom: 15px;">📄→🖼</div>
-                <h3 style="color: #333; margin-bottom: 15px;">PDF to JPG</h3>
-                <p style="color: #666; margin-bottom: 25px;">Convert PDF pages to JPG images</p>
-                <a href="pdf-to-jpg.html" style="display: inline-block; background: #667eea; color: white; padding: 12px 30px; border-radius: 50px; text-decoration: none; font-weight: 600;">Use Tool</a>
-            </div>
-
-            <!-- Image Compressor Card -->
-            <div style="background: white; padding: 30px; border-radius: 15px; text-align: center; box-shadow: 0 8px 25px rgba(0,0,0,0.15);">
-                <div style="font-size: 50px; margin-bottom: 15px;">🖼</div>
-                <h3 style="color: #333; margin-bottom: 15px;">Image Compressor</h3>
-                <p style="color: #666; margin-bottom: 25px;">Reduce image file size</p>
-                <a href="image-compressor.html" style="display: inline-block; background: #fd746c; color: white; padding: 12px 30px; border-radius: 50px; text-decoration: none; font-weight: 600;">Use Tool</a>
-            </div>
-        </div>
-    </div>
-    <!-- END OF MORE TOOLS SECTION -->
-
+    <!-- Footer -->
     <footer>
-        <p>Image to PDF Converter &copy; 2023 | All rights reserved</p>
-        
-        <!-- Support Section -->
-        <div style="text-align: center; margin: 25px 0; padding: 20px; background: rgba(255,255,255,0.1); border-radius: 10px;">
-            <h4 style="color: white; margin-bottom: 15px;">☕ Support This Project</h4>
-            
-            <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
-                <!-- Buy Me a Coffee -->
-                <a href="https://buymeacoffee.com/yourusername" target="_blank" 
-                   style="display: inline-block; background: #FFDD00; color: #000; 
-                          padding: 10px 20px; border-radius: 25px; text-decoration: none; 
-                          font-weight: bold; transition: all 0.3s;">
-                    ☕ Buy Me a Coffee
-                </a>
-                
-                <!-- PayPal -->
-                <a href="https://paypal.me/yourusername" target="_blank"
-                   style="display: inline-block; background: #0070BA; color: white; 
-                          padding: 10px 20px; border-radius: 25px; text-decoration: none; 
-                          font-weight: bold; transition: all 0.3s;">
-                    💙 PayPal
-                </a>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>PDFLove Tools</h4>
+                    <p style="color: #cbd5e1; line-height: 1.6;">
+                        Your all-in-one solution for PDF and image conversion needs. Fast, secure, and completely free to use.
+                    </p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Quick Tools</h4>
+                    <ul class="footer-links">
+                        <li><a href="#image-to-pdf" onclick="showTool('image-to-pdf')">Image to PDF</a></li>
+                        <li><a href="#pdf-merger" onclick="showTool('pdf-merger')">PDF Merger</a></li>
+                        <li><a href="#pdf-splitter" onclick="showTool('pdf-splitter')">PDF Splitter</a></li>
+                        <li><a href="#pdf-to-jpg" onclick="showTool('pdf-to-jpg')">PDF to JPG</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" onclick="showNotification('About page coming soon!')">About Us</a></li>
+                        <li><a href="#" onclick="showNotification('Contact page coming soon!')">Contact</a></li>
+                        <li><a href="#" onclick="showNotification('Privacy Policy coming soon!')">Privacy Policy</a></li>
+                        <li><a href="#" onclick="showNotification('Terms of Service coming soon!')">Terms of Service</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" onclick="showNotification('Help Center coming soon!')">Help Center</a></li>
+                        <li><a href="#" onclick="showNotification('FAQ coming soon!')">FAQ</a></li>
+                        <li><a href="#" onclick="showNotification('Tutorials coming soon!')">Tutorials</a></li>
+                        <li><a href="#" onclick="showNotification('Feedback system coming soon!')">Feedback</a></li>
+                    </ul>
+                </div>
             </div>
-            
-            <p style="color: rgba(255,255,255,0.7); margin-top: 10px; font-size: 0.9em;">
-                Your support helps keep this tool free for everyone!
-            </p>
-        </div>
-        
-        <div class="nav-links">
-            <a href="index.html">Image to PDF</a>
-            <a href="pdf-merger.html">PDF Merger</a>
-            <a href="pdf-splitter.html">PDF Splitter</a>
-            <a href="pdf-to-jpg.html">PDF to JPG</a>
-            <a href="image-compressor.html">Image Compressor</a>
-            <a href="about.html">About</a>
-            <a href="privacy-policy.html">Privacy</a>
-            <a href="contact.html">Contact</a>
+
+            <!-- Support Section -->
+            <div class="support-section">
+                <h4 style="color: white; margin-bottom: 15px;">❤ Support This Project</h4>
+                <p style="color: #cbd5e1; margin-bottom: 20px;">
+                    Help us keep this service free and ad-free for everyone!
+                </p>
+                <div class="support-buttons">
+                    <a href="https://buymeacoffee.com/pdflove" target="_blank" class="support-btn coffee">
+                        <i class="fas fa-coffee"></i> Buy Me a Coffee
+                    </a>
+                    <a href="https://paypal.me/pdflove" target="_blank" class="support-btn paypal">
+                        <i class="fab fa-paypal"></i> PayPal
+                    </a>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>&copy; 2024 PDFLove Tools. All rights reserved. | Made with ❤ for the community</p>
+                <p style="font-size: 0.9rem; margin-top: 5px; color: #94a3b8;">
+                    Last updated: December 2024 | Version 2.0.0
+                </p>
+            </div>
         </div>
     </footer>
+
+    <!-- Notification System -->
+    <div class="notification" id="notification">
+        <span id="notificationText"></span>
+    </div>
 
     <script>
         // Wait for the jsPDF library to load
         window.jsPDF = window.jspdf.jsPDF;
 
+        // Global variables
+        let currentTool = 'image-to-pdf';
+        let uploadedImages = [];
+        let pdfBlob = null;
+
         document.addEventListener('DOMContentLoaded', function() {
+            initializeImageToPdf();
+            initializeNavigation();
+            loadAds();
+        });
+
+        function initializeNavigation() {
+            // Set active tool on page load
+            showTool('image-to-pdf');
+        }
+
+        function showTool(toolId) {
+            // Hide all tools
+            document.querySelectorAll('.tool-container').forEach(tool => {
+                tool.style.display = 'none';
+            });
+            
+            // Remove active class from all nav buttons
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Show selected tool
+            document.getElementById(toolId).style.display = 'block';
+            
+            // Add active class to clicked nav button
+            event.target.classList.add('active');
+            
+            // Update current tool
+            currentTool = toolId;
+            
+            // Show notification for coming soon features
+            if (toolId !== 'image-to-pdf') {
+                showNotification('This feature is coming soon! We\\'re working hard to bring it to you.');
+            }
+        }
+
+        function initializeImageToPdf() {
             const dropArea = document.getElementById('dropArea');
             const fileInput = document.getElementById('fileInput');
             const browseBtn = document.getElementById('browseBtn');
@@ -429,9 +867,8 @@
             const downloadBtn = document.getElementById('downloadBtn');
             const resetBtn = document.getElementById('resetBtn');
             const pdfPreview = document.getElementById('pdfPreview');
-
-            let uploadedImages = [];
-            let pdfBlob = null;
+            const progressContainer = document.getElementById('progressContainer');
+            const progressBar = document.getElementById('progressBar');
 
             // Event listeners
             browseBtn.addEventListener('click', () => fileInput.click());
@@ -467,6 +904,15 @@
             }
 
             function handleFiles(files) {
+                if (files.length === 0) return;
+
+                // Show progress
+                progressContainer.style.display = 'block';
+                progressBar.style.width = '0%';
+
+                let loaded = 0;
+                const total = files.length;
+
                 for (let i = 0; i < files.length; i++) {
                     const file = files[i];
                     if (file.type.match('image.*')) {
@@ -475,13 +921,39 @@
                         reader.onload = function(e) {
                             const imageData = {
                                 src: e.target.result,
-                                name: file.name
+                                name: file.name,
+                                size: file.size
                             };
                             uploadedImages.push(imageData);
-                            updateImagePreview();
+                            
+                            // Update progress
+                            loaded++;
+                            progressBar.style.width = ${(loaded / total) * 100}%;
+                            
+                            // If all files are loaded, update preview
+                            if (loaded === total) {
+                                setTimeout(() => {
+                                    progressContainer.style.display = 'none';
+                                    updateImagePreview();
+                                    showNotification(Successfully loaded ${total} image(s));
+                                }, 500);
+                            }
+                        };
+                        
+                        reader.onerror = function() {
+                            loaded++;
+                            if (loaded === total) {
+                                progressContainer.style.display = 'none';
+                            }
+                            showNotification('Error loading some images', 'error');
                         };
                         
                         reader.readAsDataURL(file);
+                    } else {
+                        loaded++;
+                        if (loaded === total) {
+                            progressContainer.style.display = 'none';
+                        }
                     }
                 }
                 
@@ -513,14 +985,17 @@
                     const img = document.createElement('img');
                     img.src = image.src;
                     img.alt = image.name;
+                    img.title = ${image.name} (${formatFileSize(image.size)});
                     
                     const removeBtn = document.createElement('button');
                     removeBtn.className = 'remove-btn';
                     removeBtn.innerHTML = '×';
+                    removeBtn.title = 'Remove image';
                     removeBtn.addEventListener('click', (e) => {
                         e.stopPropagation();
                         uploadedImages.splice(index, 1);
                         updateImagePreview();
+                        showNotification('Image removed');
                     });
                     
                     previewItem.appendChild(img);
@@ -529,21 +1004,22 @@
                 });
                 
                 convertBtn.disabled = false;
+                showNotification(${uploadedImages.length} image(s) ready for conversion);
             }
 
             function convertToPdf() {
                 if (uploadedImages.length === 0) return;
                 
+                // Show conversion in progress
+                convertBtn.disabled = true;
+                convertBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Converting...';
+                
                 // Create a new PDF document
                 const pdf = new jsPDF();
-                
-                // Add each image to the PDF
+                let imagesProcessed = 0;
+
+                // Process each image
                 uploadedImages.forEach((image, index) => {
-                    if (index > 0) {
-                        pdf.addPage();
-                    }
-                    
-                    // Get image dimensions
                     const img = new Image();
                     img.src = image.src;
                     
@@ -564,23 +1040,46 @@
                         const y = (pageHeight - height) / 2;
                         
                         // Add image to PDF
+                        if (index > 0) {
+                            pdf.addPage();
+                        }
+                        
                         pdf.addImage(image.src, 'JPEG', x, y, width, height);
                         
-                        // If this is the last image, enable download button
-                        if (index === uploadedImages.length - 1) {
+                        imagesProcessed++;
+                        
+                        // If all images are processed, finalize PDF
+                        if (imagesProcessed === uploadedImages.length) {
                             // Generate PDF blob
                             pdfBlob = pdf.output('blob');
+                            
+                            // Update UI
+                            convertBtn.disabled = false;
+                            convertBtn.innerHTML = '<i class="fas fa-sync-alt"></i> Convert to PDF';
                             
                             // Update PDF preview
                             const pdfUrl = URL.createObjectURL(pdfBlob);
                             pdfPreview.innerHTML = `
-                                <i>📄</i>
-                                <p>Your PDF is ready!</p>
+                                <i class="fas fa-check-circle" style="color: #10b981;"></i>
+                                <p style="color: #10b981; font-weight: 600;">Conversion Complete!</p>
                                 <p>File size: ${formatFileSize(pdfBlob.size)}</p>
                                 <p>Pages: ${uploadedImages.length}</p>
+                                <p class="text-muted">Click Download to save your PDF</p>
                             `;
                             pdfPreview.style.display = 'flex';
                             downloadBtn.disabled = false;
+                            
+                            showNotification('PDF created successfully!');
+                        }
+                    };
+                    
+                    img.onerror = function() {
+                        imagesProcessed++;
+                        showNotification(Error processing image: ${image.name}, 'error');
+                        
+                        if (imagesProcessed === uploadedImages.length) {
+                            convertBtn.disabled = false;
+                            convertBtn.innerHTML = '<i class="fas fa-sync-alt"></i> Convert to PDF';
                         }
                     };
                 });
@@ -597,6 +1096,8 @@
                 a.click();
                 document.body.removeChild(a);
                 URL.revokeObjectURL(url);
+                
+                showNotification('PDF downloaded successfully!');
             }
 
             function resetAll() {
@@ -604,24 +1105,51 @@
                 pdfBlob = null;
                 updateImagePreview();
                 pdfPreview.innerHTML = `
-                    <i>📄</i>
+                    <i class="fas fa-file-pdf"></i>
                     <p>Your PDF will appear here after conversion</p>
+                    <p class="text-muted">Supports JPG, PNG, GIF, WebP</p>
                 `;
                 pdfPreview.style.display = 'flex';
+                
+                showNotification('All files cleared');
             }
+        }
 
-            function formatFileSize(bytes) {
-                if (bytes === 0) return '0 Bytes';
-                const k = 1024;
-                const sizes = ['Bytes', 'KB', 'MB', 'GB'];
-                const i = Math.floor(Math.log(bytes) / Math.log(k));
-                return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+        function formatFileSize(bytes) {
+            if (bytes === 0) return '0 Bytes';
+            const k = 1024;
+            const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+        }
+
+        function showNotification(message, type = 'success') {
+            const notification = document.getElementById('notification');
+            const notificationText = document.getElementById('notificationText');
+            
+            notificationText.textContent = message;
+            
+            // Set color based on type
+            if (type === 'error') {
+                notification.style.background = '#ef4444';
+            } else {
+                notification.style.background = '#10b981';
             }
-        });
+            
+            notification.classList.add('show');
+            
+            // Hide after 3 seconds
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 3000);
+        }
+
+        function loadAds() {
+            // Simulate ad loading
+            setTimeout(() => {
+                showNotification('Ad system initialized');
+            }, 2000);
+        }
     </script>
-
-    <!-- Adsterra Pop-Under Code -->
-    <script type='text/javascript' src='//pl27779994.revenuecpmgate.com/e2/89/09/e2890912ee39de37948741542f0fe493.js'></script>
-
 </body>
 </html>

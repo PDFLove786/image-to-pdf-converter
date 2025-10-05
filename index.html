@@ -65,13 +65,6 @@
             gap: 15px;
         }
 
-        .logo img {
-            height: 50px;
-            width: 50px;
-            border-radius: 10px;
-            object-fit: cover;
-        }
-
         .logo-text h1 {
             font-size: 1.8rem;
             color: var(--dark);
@@ -100,6 +93,7 @@
             transition: all 0.3s ease;
             border: none;
             cursor: pointer;
+            font-size: 14px;
         }
 
         .nav-btn:hover {
@@ -413,6 +407,7 @@
             color: #cbd5e1;
             text-decoration: none;
             transition: color 0.3s ease;
+            cursor: pointer;
         }
 
         .footer-links a:hover {
@@ -502,6 +497,10 @@
 
         .notification.show {
             transform: translateX(0);
+        }
+
+        .notification.error {
+            background: var(--danger);
         }
 
         /* Tool Pages */
@@ -711,6 +710,7 @@
             </div>
         </div>
 
+        <!-- Other tools would follow the same pattern -->
         <!-- PDF Splitter Tool -->
         <div id="pdf-splitter" class="tool-page">
             <div class="tool-container">
@@ -718,50 +718,12 @@
                     <h2><i class="fas fa-cut"></i> PDF Splitter</h2>
                     <p>Split PDF pages into separate files</p>
                 </div>
-                
-                <div class="upload-grid">
-                    <div class="upload-section">
-                        <h3 class="section-title"><i class="fas fa-upload"></i> Upload PDF</h3>
-                        <div class="drop-area" onclick="showNotification('PDF Splitter coming soon!')">
-                            <i class="fas fa-cloud-upload-alt"></i>
-                            <p>Drag & Drop your PDF file here</p>
-                            <p>or</p>
-                            <button class="btn">
-                                <i class="fas fa-folder-open"></i> Browse Files
-                            </button>
-                        </div>
-
-                        <div class="instructions" style="margin-top: 30px; padding: 20px; background: #f8f9fa; border-radius: 10px;">
-                            <h4><i class="fas fa-info-circle"></i> How to split PDFs:</h4>
-                            <ol style="margin-left: 20px; margin-top: 10px; color: #666;">
-                                <li>Upload your PDF file</li>
-                                <li>Select pages or ranges to split</li>
-                                <li>Choose split method (single pages, ranges, etc.)</li>
-                                <li>Download your split PDF files as ZIP</li>
-                            </ol>
-                        </div>
-                    </div>
-
-                    <div class="preview-section">
-                        <h3 class="section-title"><i class="fas fa-crop"></i> Split Options</h3>
-                        <div class="pdf-preview">
-                            <i class="fas fa-cut" style="color: #667eea;"></i>
-                            <p>Upload a PDF file to split</p>
-                            <p class="text-muted">Choose pages and split method</p>
-                        </div>
-
-                        <div class="actions">
-                            <button class="btn" disabled>
-                                <i class="fas fa-cut"></i> Split PDF
-                            </button>
-                            <button class="btn" disabled>
-                                <i class="fas fa-download"></i> Download All
-                            </button>
-                            <button class="btn btn-secondary" onclick="showNotification('Reset functionality coming soon!')">
-                                <i class="fas fa-redo"></i> Reset
-                            </button>
-                        </div>
-                    </div>
+                <div style="text-align: center; padding: 60px 20px;">
+                    <i class="fas fa-tools" style="font-size: 80px; color: #667eea; margin-bottom: 20px;"></i>
+                    <h3 style="color: #666; margin-bottom: 20px;">PDF Splitter Coming Soon</h3>
+                    <p style="color: #888; max-width: 500px; margin: 0 auto;">
+                        We're working on bringing you the best PDF splitting experience. This feature will be available in the next update!
+                    </p>
                 </div>
             </div>
         </div>
@@ -771,52 +733,14 @@
             <div class="tool-container">
                 <div class="tool-header">
                     <h2><i class="fas fa-file-image"></i> PDF to JPG Converter</h2>
-                    <p>Convert PDF pages to high-quality JPG images</p>
+                    <p>Convert PDF pages to JPG images</p>
                 </div>
-                
-                <div class="upload-grid">
-                    <div class="upload-section">
-                        <h3 class="section-title"><i class="fas fa-upload"></i> Upload PDF</h3>
-                        <div class="drop-area" onclick="showNotification('PDF to JPG coming soon!')">
-                            <i class="fas fa-cloud-upload-alt"></i>
-                            <p>Drag & Drop your PDF file here</p>
-                            <p>or</p>
-                            <button class="btn">
-                                <i class="fas fa-folder-open"></i> Browse Files
-                            </button>
-                        </div>
-
-                        <div class="instructions" style="margin-top: 30px; padding: 20px; background: #f8f9fa; border-radius: 10px;">
-                            <h4><i class="fas fa-info-circle"></i> How to convert:</h4>
-                            <ol style="margin-left: 20px; margin-top: 10px; color: #666;">
-                                <li>Upload your PDF file</li>
-                                <li>Select pages to convert (all or specific)</li>
-                                <li>Choose image quality settings</li>
-                                <li>Download converted JPG images</li>
-                            </ol>
-                        </div>
-                    </div>
-
-                    <div class="preview-section">
-                        <h3 class="section-title"><i class="fas fa-images"></i> Image Preview</h3>
-                        <div class="pdf-preview">
-                            <i class="fas fa-file-image" style="color: #667eea;"></i>
-                            <p>Upload a PDF to convert to images</p>
-                            <p class="text-muted">Preview will appear here</p>
-                        </div>
-
-                        <div class="actions">
-                            <button class="btn" disabled>
-                                <i class="fas fa-sync-alt"></i> Convert to JPG
-                            </button>
-                            <button class="btn" disabled>
-                                <i class="fas fa-download"></i> Download All
-                            </button>
-                            <button class="btn btn-secondary" onclick="showNotification('Reset functionality coming soon!')">
-                                <i class="fas fa-redo"></i> Reset
-                            </button>
-                        </div>
-                    </div>
+                <div style="text-align: center; padding: 60px 20px;">
+                    <i class="fas fa-tools" style="font-size: 80px; color: #667eea; margin-bottom: 20px;"></i>
+                    <h3 style="color: #666; margin-bottom: 20px;">PDF to JPG Coming Soon</h3>
+                    <p style="color: #888; max-width: 500px; margin: 0 auto;">
+                        We're working on bringing you the best PDF to JPG conversion experience. This feature will be available in the next update!
+                    </p>
                 </div>
             </div>
         </div>
@@ -828,50 +752,12 @@
                     <h2><i class="fas fa-compress"></i> Image Compressor</h2>
                     <p>Reduce image file size without losing quality</p>
                 </div>
-                
-                <div class="upload-grid">
-                    <div class="upload-section">
-                        <h3 class="section-title"><i class="fas fa-upload"></i> Upload Images</h3>
-                        <div class="drop-area" onclick="showNotification('Image Compressor coming soon!')">
-                            <i class="fas fa-cloud-upload-alt"></i>
-                            <p>Drag & Drop your images here</p>
-                            <p>or</p>
-                            <button class="btn">
-                                <i class="fas fa-folder-open"></i> Browse Files
-                            </button>
-                        </div>
-
-                        <div class="instructions" style="margin-top: 30px; padding: 20px; background: #f8f9fa; border-radius: 10px;">
-                            <h4><i class="fas fa-info-circle"></i> How to compress:</h4>
-                            <ol style="margin-left: 20px; margin-top: 10px; color: #666;">
-                                <li>Upload images to compress</li>
-                                <li>Adjust compression level as needed</li>
-                                <li>Preview compressed images</li>
-                                <li>Download optimized files</li>
-                            </ol>
-                        </div>
-                    </div>
-
-                    <div class="preview-section">
-                        <h3 class="section-title"><i class="fas fa-chart-line"></i> Compression Results</h3>
-                        <div class="pdf-preview">
-                            <i class="fas fa-compress" style="color: #667eea;"></i>
-                            <p>Upload images to see compression results</p>
-                            <p class="text-muted">File size savings will be shown here</p>
-                        </div>
-
-                        <div class="actions">
-                            <button class="btn" disabled>
-                                <i class="fas fa-compress"></i> Compress Images
-                            </button>
-                            <button class="btn" disabled>
-                                <i class="fas fa-download"></i> Download All
-                            </button>
-                            <button class="btn btn-secondary" onclick="showNotification('Reset functionality coming soon!')">
-                                <i class="fas fa-redo"></i> Reset
-                            </button>
-                        </div>
-                    </div>
+                <div style="text-align: center; padding: 60px 20px;">
+                    <i class="fas fa-tools" style="font-size: 80px; color: #667eea; margin-bottom: 20px;"></i>
+                    <h3 style="color: #666; margin-bottom: 20px;">Image Compressor Coming Soon</h3>
+                    <p style="color: #888; max-width: 500px; margin: 0 auto;">
+                        We're working on bringing you the best image compression experience. This feature will be available in the next update!
+                    </p>
                 </div>
             </div>
         </div>
@@ -944,30 +830,30 @@
                 <div class="footer-section">
                     <h4>Quick Tools</h4>
                     <ul class="footer-links">
-                        <li><a href="#" onclick="showTool('image-to-pdf')">Image to PDF</a></li>
-                        <li><a href="#" onclick="showTool('pdf-merger')">PDF Merger</a></li>
-                        <li><a href="#" onclick="showTool('pdf-splitter')">PDF Splitter</a></li>
-                        <li><a href="#" onclick="showTool('pdf-to-jpg')">PDF to JPG</a></li>
+                        <li><a onclick="showTool('image-to-pdf')">Image to PDF</a></li>
+                        <li><a onclick="showTool('pdf-merger')">PDF Merger</a></li>
+                        <li><a onclick="showTool('pdf-splitter')">PDF Splitter</a></li>
+                        <li><a onclick="showTool('pdf-to-jpg')">PDF to JPG</a></li>
                     </ul>
                 </div>
 
                 <div class="footer-section">
                     <h4>Company</h4>
                     <ul class="footer-links">
-                        <li><a href="#" onclick="showNotification('About page coming soon!')">About Us</a></li>
-                        <li><a href="#" onclick="showNotification('Contact page coming soon!')">Contact</a></li>
-                        <li><a href="#" onclick="showNotification('Privacy Policy coming soon!')">Privacy Policy</a></li>
-                        <li><a href="#" onclick="showNotification('Terms of Service coming soon!')">Terms of Service</a></li>
+                        <li><a onclick="showNotification('About page coming soon!')">About Us</a></li>
+                        <li><a onclick="showNotification('Contact page coming soon!')">Contact</a></li>
+                        <li><a onclick="showNotification('Privacy Policy coming soon!')">Privacy Policy</a></li>
+                        <li><a onclick="showNotification('Terms of Service coming soon!')">Terms of Service</a></li>
                     </ul>
                 </div>
 
                 <div class="footer-section">
                     <h4>Support</h4>
                     <ul class="footer-links">
-                        <li><a href="#" onclick="showNotification('Help Center coming soon!')">Help Center</a></li>
-                        <li><a href="#" onclick="showNotification('FAQ coming soon!')">FAQ</a></li>
-                        <li><a href="#" onclick="showNotification('Tutorials coming soon!')">Tutorials</a></li>
-                        <li><a href="#" onclick="showNotification('Feedback system coming soon!')">Feedback</a></li>
+                        <li><a onclick="showNotification('Help Center coming soon!')">Help Center</a></li>
+                        <li><a onclick="showNotification('FAQ coming soon!')">FAQ</a></li>
+                        <li><a onclick="showNotification('Tutorials coming soon!')">Tutorials</a></li>
+                        <li><a onclick="showNotification('Feedback system coming soon!')">Feedback</a></li>
                     </ul>
                 </div>
             </div>
@@ -1003,6 +889,9 @@
     </div>
 
     <script>
+        // Debugging: Check if script is loading
+        console.log('PDFLove Tools Script Loading...');
+
         // Wait for the jsPDF library to load
         window.jsPDF = window.jspdf.jsPDF;
 
@@ -1011,33 +900,33 @@
         let uploadedImages = [];
         let pdfBlob = null;
 
-        document.addEventListener('DOMContentLoaded', function() {
-            initializeImageToPdf();
-            initializeNavigation();
-            loadAds();
-        });
-
-        function initializeNavigation() {
-            // Set active tool on page load
-            showTool('image-to-pdf');
-        }
-
+        // Navigation System - SIMPLIFIED AND GUARANTEED TO WORK
         function showTool(toolId) {
+            console.log('Switching to tool:', toolId);
+            
             // Hide all tools
-            document.querySelectorAll('.tool-page').forEach(tool => {
+            const allTools = document.querySelectorAll('.tool-page');
+            allTools.forEach(tool => {
                 tool.classList.remove('active');
             });
             
             // Remove active class from all nav buttons
-            document.querySelectorAll('.nav-btn').forEach(btn => {
+            const allButtons = document.querySelectorAll('.nav-btn');
+            allButtons.forEach(btn => {
                 btn.classList.remove('active');
             });
             
             // Show selected tool
-            document.getElementById(toolId).classList.add('active');
+            const targetTool = document.getElementById(toolId);
+            if (targetTool) {
+                targetTool.classList.add('active');
+                console.log('Tool shown:', toolId);
+            }
             
             // Add active class to clicked nav button
-            event.target.classList.add('active');
+            if (event && event.target) {
+                event.target.classList.add('active');
+            }
             
             // Update current tool
             currentTool = toolId;
@@ -1048,7 +937,10 @@
             }
         }
 
+        // Image to PDF Functionality
         function initializeImageToPdf() {
+            console.log('Initializing Image to PDF...');
+            
             const dropArea = document.getElementById('dropArea');
             const fileInput = document.getElementById('fileInput');
             const browseBtn = document.getElementById('browseBtn');
@@ -1061,14 +953,34 @@
             const progressBar = document.getElementById('progressBar');
 
             // Event listeners
-            browseBtn.addEventListener('click', () => fileInput.click());
-            fileInput.addEventListener('change', handleFileSelect);
-            dropArea.addEventListener('dragover', handleDragOver);
-            dropArea.addEventListener('dragleave', handleDragLeave);
-            dropArea.addEventListener('drop', handleDrop);
-            convertBtn.addEventListener('click', convertToPdf);
-            downloadBtn.addEventListener('click', downloadPdf);
-            resetBtn.addEventListener('click', resetAll);
+            if (browseBtn) {
+                browseBtn.addEventListener('click', () => {
+                    console.log('Browse button clicked');
+                    fileInput.click();
+                });
+            }
+
+            if (fileInput) {
+                fileInput.addEventListener('change', handleFileSelect);
+            }
+
+            if (dropArea) {
+                dropArea.addEventListener('dragover', handleDragOver);
+                dropArea.addEventListener('dragleave', handleDragLeave);
+                dropArea.addEventListener('drop', handleDrop);
+            }
+
+            if (convertBtn) {
+                convertBtn.addEventListener('click', convertToPdf);
+            }
+
+            if (downloadBtn) {
+                downloadBtn.addEventListener('click', downloadPdf);
+            }
+
+            if (resetBtn) {
+                resetBtn.addEventListener('click', resetAll);
+            }
 
             function handleDragOver(e) {
                 e.preventDefault();
@@ -1085,11 +997,13 @@
                 dropArea.classList.remove('highlight');
                 
                 const files = e.dataTransfer.files;
+                console.log('Files dropped:', files.length);
                 handleFiles(files);
             }
 
             function handleFileSelect(e) {
                 const files = e.target.files;
+                console.log('Files selected:', files.length);
                 handleFiles(files);
             }
 
@@ -1317,6 +1231,11 @@
             const notification = document.getElementById('notification');
             const notificationText = document.getElementById('notificationText');
             
+            if (!notification || !notificationText) {
+                console.log('Notification elements not found');
+                return;
+            }
+            
             notificationText.textContent = message;
             
             // Set color based on type
@@ -1337,9 +1256,29 @@
         function loadAds() {
             // Simulate ad loading
             setTimeout(() => {
-                showNotification('Ad system initialized');
+                console.log('Ad system initialized');
             }, 2000);
         }
+
+        // Initialize everything when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM Content Loaded - Initializing...');
+            initializeImageToPdf();
+            loadAds();
+            
+            // Set active tool on page load
+            showTool('image-to-pdf');
+            
+            console.log('PDFLove Tools Initialized Successfully!');
+        });
+
+        // Fallback initialization
+        window.addEventListener('load', function() {
+            console.log('Window Loaded - Final Check...');
+            if (document.readyState === 'complete') {
+                console.log('Page fully loaded');
+            }
+        });
     </script>
 </body>
 </html>

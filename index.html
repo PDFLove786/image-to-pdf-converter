@@ -504,6 +504,15 @@
             transform: translateX(0);
         }
 
+        /* Tool Pages */
+        .tool-page {
+            display: none;
+        }
+
+        .tool-page.active {
+            display: block;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .header-content {
@@ -549,18 +558,21 @@
                     </div>
                 </div>
                 <div class="nav-links">
-                    <a href="#image-to-pdf" class="nav-btn active" onclick="showTool('image-to-pdf')">
+                    <button class="nav-btn active" onclick="showTool('image-to-pdf')">
                         <i class="fas fa-image"></i> Image to PDF
-                    </a>
-                    <a href="#pdf-merger" class="nav-btn" onclick="showTool('pdf-merger')">
+                    </button>
+                    <button class="nav-btn" onclick="showTool('pdf-merger')">
                         <i class="fas fa-object-group"></i> PDF Merger
-                    </a>
-                    <a href="#pdf-splitter" class="nav-btn" onclick="showTool('pdf-splitter')">
+                    </button>
+                    <button class="nav-btn" onclick="showTool('pdf-splitter')">
                         <i class="fas fa-cut"></i> PDF Splitter
-                    </a>
-                    <a href="#pdf-to-jpg" class="nav-btn" onclick="showTool('pdf-to-jpg')">
+                    </button>
+                    <button class="nav-btn" onclick="showTool('pdf-to-jpg')">
                         <i class="fas fa-file-image"></i> PDF to JPG
-                    </a>
+                    </button>
+                    <button class="nav-btn" onclick="showTool('image-compressor')">
+                        <i class="fas fa-compress"></i> Image Compressor
+                    </button>
                 </div>
             </div>
         </div>
@@ -572,11 +584,10 @@
         <div class="ad-container">
             <div class="ad-label">Advertisement</div>
             <div id="ad-banner">
-                <!-- Ad content will be loaded here -->
                 <div style="padding: 20px; background: linear-gradient(135deg, #667eea, #764ba2); color: white; border-radius: 10px;">
                     <h4 style="margin-bottom: 10px;">✨ PDFLove Pro</h4>
                     <p style="margin-bottom: 15px; opacity: 0.9;">Upgrade for unlimited conversions and premium features</p>
-                    <button class="btn" style="background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.3);">
+                    <button class="btn" style="background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.3);" onclick="showNotification('Pro features coming soon!')">
                         Learn More
                     </button>
                 </div>
@@ -584,105 +595,284 @@
         </div>
 
         <!-- Image to PDF Tool -->
-        <div id="image-to-pdf" class="tool-container">
-            <div class="tool-header">
-                <h2><i class="fas fa-image"></i> Image to PDF Converter</h2>
-                <p>Convert multiple images to a single PDF document instantly</p>
-            </div>
-
-            <div class="upload-grid">
-                <div class="upload-section">
-                    <h3 class="section-title"><i class="fas fa-upload"></i> Upload Images</h3>
-                    <div class="drop-area" id="dropArea">
-                        <i class="fas fa-cloud-upload-alt"></i>
-                        <p>Drag & Drop your images here</p>
-                        <p>or</p>
-                        <button class="btn" id="browseBtn">
-                            <i class="fas fa-folder-open"></i> Browse Files
-                        </button>
-                        <input type="file" id="fileInput" class="file-input" multiple accept="image/*">
-                    </div>
-
-                    <div class="progress-container" id="progressContainer" style="display: none;">
-                        <div class="progress-bar" id="progressBar"></div>
-                    </div>
-
-                    <div class="instructions" style="margin-top: 30px; padding: 20px; background: #f8f9fa; border-radius: 10px;">
-                        <h4><i class="fas fa-info-circle"></i> How to use:</h4>
-                        <ol style="margin-left: 20px; margin-top: 10px; color: #666;">
-                            <li>Select images by clicking "Browse Files" or drag and drop</li>
-                            <li>Preview your selected images in the right panel</li>
-                            <li>Click "Convert to PDF" to generate your document</li>
-                            <li>Download your PDF file instantly</li>
-                        </ol>
-                    </div>
+        <div id="image-to-pdf" class="tool-page active">
+            <div class="tool-container">
+                <div class="tool-header">
+                    <h2><i class="fas fa-image"></i> Image to PDF Converter</h2>
+                    <p>Convert multiple images to a single PDF document instantly</p>
                 </div>
 
-                <div class="preview-section">
-                    <h3 class="section-title"><i class="fas fa-eye"></i> Preview</h3>
-                    <div class="image-preview" id="imagePreview">
-                        <div class="pdf-preview" id="pdfPreview">
-                            <i class="fas fa-file-pdf"></i>
-                            <p>Your PDF will appear here after conversion</p>
-                            <p class="text-muted">Supports JPG, PNG, GIF, WebP</p>
+                <div class="upload-grid">
+                    <div class="upload-section">
+                        <h3 class="section-title"><i class="fas fa-upload"></i> Upload Images</h3>
+                        <div class="drop-area" id="dropArea">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <p>Drag & Drop your images here</p>
+                            <p>or</p>
+                            <button class="btn" id="browseBtn">
+                                <i class="fas fa-folder-open"></i> Browse Files
+                            </button>
+                            <input type="file" id="fileInput" class="file-input" multiple accept="image/*">
+                        </div>
+
+                        <div class="progress-container" id="progressContainer" style="display: none;">
+                            <div class="progress-bar" id="progressBar"></div>
+                        </div>
+
+                        <div class="instructions" style="margin-top: 30px; padding: 20px; background: #f8f9fa; border-radius: 10px;">
+                            <h4><i class="fas fa-info-circle"></i> How to use:</h4>
+                            <ol style="margin-left: 20px; margin-top: 10px; color: #666;">
+                                <li>Select images by clicking "Browse Files" or drag and drop</li>
+                                <li>Preview your selected images in the right panel</li>
+                                <li>Click "Convert to PDF" to generate your document</li>
+                                <li>Download your PDF file instantly</li>
+                            </ol>
                         </div>
                     </div>
 
-                    <div class="actions">
-                        <button class="btn" id="convertBtn" disabled>
-                            <i class="fas fa-sync-alt"></i> Convert to PDF
-                        </button>
-                        <button class="btn" id="downloadBtn" disabled>
-                            <i class="fas fa-download"></i> Download PDF
-                        </button>
-                        <button class="btn btn-secondary" id="resetBtn">
-                            <i class="fas fa-redo"></i> Reset
-                        </button>
+                    <div class="preview-section">
+                        <h3 class="section-title"><i class="fas fa-eye"></i> Preview</h3>
+                        <div class="image-preview" id="imagePreview">
+                            <div class="pdf-preview" id="pdfPreview">
+                                <i class="fas fa-file-pdf"></i>
+                                <p>Your PDF will appear here after conversion</p>
+                                <p class="text-muted">Supports JPG, PNG, GIF, WebP</p>
+                            </div>
+                        </div>
+
+                        <div class="actions">
+                            <button class="btn" id="convertBtn" disabled>
+                                <i class="fas fa-sync-alt"></i> Convert to PDF
+                            </button>
+                            <button class="btn" id="downloadBtn" disabled>
+                                <i class="fas fa-download"></i> Download PDF
+                            </button>
+                            <button class="btn btn-secondary" id="resetBtn">
+                                <i class="fas fa-redo"></i> Reset
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Other Tools (Hidden by default) -->
-        <div id="pdf-merger" class="tool-container" style="display: none;">
-            <div class="tool-header">
-                <h2><i class="fas fa-object-group"></i> PDF Merger</h2>
-                <p>Combine multiple PDF files into one document</p>
-            </div>
-            <div style="text-align: center; padding: 60px 20px;">
-                <i class="fas fa-tools" style="font-size: 80px; color: #667eea; margin-bottom: 20px;"></i>
-                <h3 style="color: #666; margin-bottom: 20px;">PDF Merger Coming Soon</h3>
-                <p style="color: #888; max-width: 500px; margin: 0 auto;">
-                    We're working on bringing you the best PDF merging experience. This feature will be available in the next update!
-                </p>
+        <!-- PDF Merger Tool -->
+        <div id="pdf-merger" class="tool-page">
+            <div class="tool-container">
+                <div class="tool-header">
+                    <h2><i class="fas fa-object-group"></i> PDF Merger</h2>
+                    <p>Combine multiple PDF files into one document</p>
+                </div>
+                
+                <div class="upload-grid">
+                    <div class="upload-section">
+                        <h3 class="section-title"><i class="fas fa-upload"></i> Upload PDFs</h3>
+                        <div class="drop-area" onclick="showNotification('PDF Merger coming soon!')">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <p>Drag & Drop your PDF files here</p>
+                            <p>or</p>
+                            <button class="btn">
+                                <i class="fas fa-folder-open"></i> Browse Files
+                            </button>
+                        </div>
+
+                        <div class="instructions" style="margin-top: 30px; padding: 20px; background: #f8f9fa; border-radius: 10px;">
+                            <h4><i class="fas fa-info-circle"></i> How to merge PDFs:</h4>
+                            <ol style="margin-left: 20px; margin-top: 10px; color: #666;">
+                                <li>Select multiple PDF files to merge</li>
+                                <li>Arrange them in your preferred order</li>
+                                <li>Click "Merge PDFs" to combine them</li>
+                                <li>Download your merged PDF file</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <div class="preview-section">
+                        <h3 class="section-title"><i class="fas fa-list"></i> File List</h3>
+                        <div class="pdf-preview">
+                            <i class="fas fa-object-group" style="color: #667eea;"></i>
+                            <p>Upload PDF files to see them here</p>
+                            <p class="text-muted">Drag and drop to reorder files</p>
+                        </div>
+
+                        <div class="actions">
+                            <button class="btn" disabled>
+                                <i class="fas fa-object-group"></i> Merge PDFs
+                            </button>
+                            <button class="btn" disabled>
+                                <i class="fas fa-download"></i> Download
+                            </button>
+                            <button class="btn btn-secondary" onclick="showNotification('Reset functionality coming soon!')">
+                                <i class="fas fa-redo"></i> Reset
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div id="pdf-splitter" class="tool-container" style="display: none;">
-            <div class="tool-header">
-                <h2><i class="fas fa-cut"></i> PDF Splitter</h2>
-                <p>Split PDF pages into separate files</p>
-            </div>
-            <div style="text-align: center; padding: 60px 20px;">
-                <i class="fas fa-tools" style="font-size: 80px; color: #667eea; margin-bottom: 20px;"></i>
-                <h3 style="color: #666; margin-bottom: 20px;">PDF Splitter Coming Soon</h3>
-                <p style="color: #888; max-width: 500px; margin: 0 auto;">
-                    We're working on bringing you the best PDF splitting experience. This feature will be available in the next update!
-                </p>
+        <!-- PDF Splitter Tool -->
+        <div id="pdf-splitter" class="tool-page">
+            <div class="tool-container">
+                <div class="tool-header">
+                    <h2><i class="fas fa-cut"></i> PDF Splitter</h2>
+                    <p>Split PDF pages into separate files</p>
+                </div>
+                
+                <div class="upload-grid">
+                    <div class="upload-section">
+                        <h3 class="section-title"><i class="fas fa-upload"></i> Upload PDF</h3>
+                        <div class="drop-area" onclick="showNotification('PDF Splitter coming soon!')">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <p>Drag & Drop your PDF file here</p>
+                            <p>or</p>
+                            <button class="btn">
+                                <i class="fas fa-folder-open"></i> Browse Files
+                            </button>
+                        </div>
+
+                        <div class="instructions" style="margin-top: 30px; padding: 20px; background: #f8f9fa; border-radius: 10px;">
+                            <h4><i class="fas fa-info-circle"></i> How to split PDFs:</h4>
+                            <ol style="margin-left: 20px; margin-top: 10px; color: #666;">
+                                <li>Upload your PDF file</li>
+                                <li>Select pages or ranges to split</li>
+                                <li>Choose split method (single pages, ranges, etc.)</li>
+                                <li>Download your split PDF files as ZIP</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <div class="preview-section">
+                        <h3 class="section-title"><i class="fas fa-crop"></i> Split Options</h3>
+                        <div class="pdf-preview">
+                            <i class="fas fa-cut" style="color: #667eea;"></i>
+                            <p>Upload a PDF file to split</p>
+                            <p class="text-muted">Choose pages and split method</p>
+                        </div>
+
+                        <div class="actions">
+                            <button class="btn" disabled>
+                                <i class="fas fa-cut"></i> Split PDF
+                            </button>
+                            <button class="btn" disabled>
+                                <i class="fas fa-download"></i> Download All
+                            </button>
+                            <button class="btn btn-secondary" onclick="showNotification('Reset functionality coming soon!')">
+                                <i class="fas fa-redo"></i> Reset
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div id="pdf-to-jpg" class="tool-container" style="display: none;">
-            <div class="tool-header">
-                <h2><i class="fas fa-file-image"></i> PDF to JPG Converter</h2>
-                <p>Convert PDF pages to JPG images</p>
+        <!-- PDF to JPG Tool -->
+        <div id="pdf-to-jpg" class="tool-page">
+            <div class="tool-container">
+                <div class="tool-header">
+                    <h2><i class="fas fa-file-image"></i> PDF to JPG Converter</h2>
+                    <p>Convert PDF pages to high-quality JPG images</p>
+                </div>
+                
+                <div class="upload-grid">
+                    <div class="upload-section">
+                        <h3 class="section-title"><i class="fas fa-upload"></i> Upload PDF</h3>
+                        <div class="drop-area" onclick="showNotification('PDF to JPG coming soon!')">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <p>Drag & Drop your PDF file here</p>
+                            <p>or</p>
+                            <button class="btn">
+                                <i class="fas fa-folder-open"></i> Browse Files
+                            </button>
+                        </div>
+
+                        <div class="instructions" style="margin-top: 30px; padding: 20px; background: #f8f9fa; border-radius: 10px;">
+                            <h4><i class="fas fa-info-circle"></i> How to convert:</h4>
+                            <ol style="margin-left: 20px; margin-top: 10px; color: #666;">
+                                <li>Upload your PDF file</li>
+                                <li>Select pages to convert (all or specific)</li>
+                                <li>Choose image quality settings</li>
+                                <li>Download converted JPG images</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <div class="preview-section">
+                        <h3 class="section-title"><i class="fas fa-images"></i> Image Preview</h3>
+                        <div class="pdf-preview">
+                            <i class="fas fa-file-image" style="color: #667eea;"></i>
+                            <p>Upload a PDF to convert to images</p>
+                            <p class="text-muted">Preview will appear here</p>
+                        </div>
+
+                        <div class="actions">
+                            <button class="btn" disabled>
+                                <i class="fas fa-sync-alt"></i> Convert to JPG
+                            </button>
+                            <button class="btn" disabled>
+                                <i class="fas fa-download"></i> Download All
+                            </button>
+                            <button class="btn btn-secondary" onclick="showNotification('Reset functionality coming soon!')">
+                                <i class="fas fa-redo"></i> Reset
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div style="text-align: center; padding: 60px 20px;">
-                <i class="fas fa-tools" style="font-size: 80px; color: #667eea; margin-bottom: 20px;"></i>
-                <h3 style="color: #666; margin-bottom: 20px;">PDF to JPG Coming Soon</h3>
-                <p style="color: #888; max-width: 500px; margin: 0 auto;">
-                    We're working on bringing you the best PDF to JPG conversion experience. This feature will be available in the next update!
-                </p>
+        </div>
+
+        <!-- Image Compressor Tool -->
+        <div id="image-compressor" class="tool-page">
+            <div class="tool-container">
+                <div class="tool-header">
+                    <h2><i class="fas fa-compress"></i> Image Compressor</h2>
+                    <p>Reduce image file size without losing quality</p>
+                </div>
+                
+                <div class="upload-grid">
+                    <div class="upload-section">
+                        <h3 class="section-title"><i class="fas fa-upload"></i> Upload Images</h3>
+                        <div class="drop-area" onclick="showNotification('Image Compressor coming soon!')">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <p>Drag & Drop your images here</p>
+                            <p>or</p>
+                            <button class="btn">
+                                <i class="fas fa-folder-open"></i> Browse Files
+                            </button>
+                        </div>
+
+                        <div class="instructions" style="margin-top: 30px; padding: 20px; background: #f8f9fa; border-radius: 10px;">
+                            <h4><i class="fas fa-info-circle"></i> How to compress:</h4>
+                            <ol style="margin-left: 20px; margin-top: 10px; color: #666;">
+                                <li>Upload images to compress</li>
+                                <li>Adjust compression level as needed</li>
+                                <li>Preview compressed images</li>
+                                <li>Download optimized files</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <div class="preview-section">
+                        <h3 class="section-title"><i class="fas fa-chart-line"></i> Compression Results</h3>
+                        <div class="pdf-preview">
+                            <i class="fas fa-compress" style="color: #667eea;"></i>
+                            <p>Upload images to see compression results</p>
+                            <p class="text-muted">File size savings will be shown here</p>
+                        </div>
+
+                        <div class="actions">
+                            <button class="btn" disabled>
+                                <i class="fas fa-compress"></i> Compress Images
+                            </button>
+                            <button class="btn" disabled>
+                                <i class="fas fa-download"></i> Download All
+                            </button>
+                            <button class="btn btn-secondary" onclick="showNotification('Reset functionality coming soon!')">
+                                <i class="fas fa-redo"></i> Reset
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -729,10 +919,10 @@
                 <h4 style="margin-bottom: 10px;">🚀 Need More Power?</h4>
                 <p style="margin-bottom: 20px; opacity: 0.9;">Try our advanced features with PDFLove Pro</p>
                 <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
-                    <button class="btn" style="background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.3);">
+                    <button class="btn" style="background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.3);" onclick="showNotification('Viewing features!')">
                         View Features
                     </button>
-                    <button class="btn" style="background: white; color: #f5576c;">
+                    <button class="btn" style="background: white; color: #f5576c;" onclick="showNotification('Starting free trial!')">
                         Try Free
                     </button>
                 </div>
@@ -754,10 +944,10 @@
                 <div class="footer-section">
                     <h4>Quick Tools</h4>
                     <ul class="footer-links">
-                        <li><a href="#image-to-pdf" onclick="showTool('image-to-pdf')">Image to PDF</a></li>
-                        <li><a href="#pdf-merger" onclick="showTool('pdf-merger')">PDF Merger</a></li>
-                        <li><a href="#pdf-splitter" onclick="showTool('pdf-splitter')">PDF Splitter</a></li>
-                        <li><a href="#pdf-to-jpg" onclick="showTool('pdf-to-jpg')">PDF to JPG</a></li>
+                        <li><a href="#" onclick="showTool('image-to-pdf')">Image to PDF</a></li>
+                        <li><a href="#" onclick="showTool('pdf-merger')">PDF Merger</a></li>
+                        <li><a href="#" onclick="showTool('pdf-splitter')">PDF Splitter</a></li>
+                        <li><a href="#" onclick="showTool('pdf-to-jpg')">PDF to JPG</a></li>
                     </ul>
                 </div>
 
@@ -834,8 +1024,8 @@
 
         function showTool(toolId) {
             // Hide all tools
-            document.querySelectorAll('.tool-container').forEach(tool => {
-                tool.style.display = 'none';
+            document.querySelectorAll('.tool-page').forEach(tool => {
+                tool.classList.remove('active');
             });
             
             // Remove active class from all nav buttons
@@ -844,7 +1034,7 @@
             });
             
             // Show selected tool
-            document.getElementById(toolId).style.display = 'block';
+            document.getElementById(toolId).classList.add('active');
             
             // Add active class to clicked nav button
             event.target.classList.add('active');
